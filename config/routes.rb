@@ -1,4 +1,10 @@
 Totem::Application.routes.draw do
+  get "workflows/index"
+  get "workflows/show"
+  get "workflows/new"
+  get "workflows/create"
+  devise_for :users
+  root to: "workflows#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
