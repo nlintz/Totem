@@ -17,7 +17,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -25,11 +25,20 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'
 
-gem 'devise', '3.0.0.rc'
-
 gem 'angular-rails'
 
 gem 'normalize-rails'
+
+gem 'bundler'
+
+#Active Admin Configuration - Thanks http://stackoverflow.com/questions/16426398/active-admin-install-with-rails-4
+gem 'devise',              github: 'plataformatec/devise',     branch: 'rails4'
+gem 'responders',          github: 'plataformatec/responders'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'ransack',             github: 'ernie/ransack',            branch: 'rails-4'
+gem 'activeadmin',         github: 'akashkamboj/active_admin', branch: 'rails4'
+gem 'formtastic',          github: 'justinfrench/formtastic', branch: 'rails4beta'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

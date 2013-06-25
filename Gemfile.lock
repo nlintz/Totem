@@ -1,3 +1,65 @@
+GIT
+  remote: git://github.com/akashkamboj/active_admin.git
+  revision: d9c593b13a6fadcf0eb8d5bcd14fc1a157954e93
+  branch: rails4
+  specs:
+    activeadmin (0.6.0)
+      arbre (>= 1.0.1)
+      bourbon (>= 1.0.0)
+      devise (>= 1.1.2)
+      fastercsv
+      formtastic (>= 2.0.0)
+      inherited_resources (>= 1.3.1)
+      jquery-rails (>= 1.0.0)
+      kaminari (>= 0.13.0)
+      rails (>= 3.1.0)
+      ransack (>= 0.7.0)
+      sass (>= 3.1.0)
+
+GIT
+  remote: git://github.com/ernie/ransack.git
+  revision: 4078f4fd0ff8b48658e1b69fe8bce0c36933f19c
+  branch: rails-4
+  specs:
+    ransack (0.7.3)
+      actionpack
+      activerecord
+      polyamorous (~> 0.6.0)
+
+GIT
+  remote: git://github.com/josevalim/inherited_resources.git
+  revision: 2656ca0cea51cc7469be1d30cace24752d5b4e3b
+  specs:
+    inherited_resources (1.4.0)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0.rc)
+
+GIT
+  remote: git://github.com/justinfrench/formtastic.git
+  revision: 325282e64a897cd92c78d44d48726fe16486f84a
+  branch: rails4beta
+  specs:
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 6b5988d756d780903bf8c9ccb3e2b3b724ccebe8
+  branch: rails4
+  specs:
+    devise (2.2.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.1)
+
+GIT
+  remote: git://github.com/plataformatec/responders.git
+  revision: 89a010bea60dfca98d8a0b039e10af2a76ff9bb2
+  specs:
+    responders (1.0.0.rc)
+      railties (>= 3.2, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,9 +90,14 @@ GEM
     angular-rails (0.0.12)
       coffee-script (~> 2.2.0)
       rails
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
     arel (4.0.0)
     atomic (1.1.9)
     bcrypt-ruby (3.0.1)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -39,30 +106,34 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    devise (3.0.0.rc)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fastercsv (1.5.5)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     i18n (0.6.4)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
-    jquery-rails (3.0.1)
+    jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    minitest (4.7.4)
-    multi_json (1.7.6)
+    minitest (4.7.5)
+    multi_json (1.7.7)
     normalize-rails (2.1.1)
     orm_adapter (0.4.0)
+    polyamorous (0.6.3)
+      activerecord (>= 3.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -81,7 +152,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.17.0, < 2.0)
-    rake (10.0.4)
+    rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
     sass (3.2.9)
@@ -120,13 +191,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeadmin!
   angular-rails
+  bundler
   coffee-rails (~> 4.0.0.beta1)
-  devise (= 3.0.0.rc)
+  devise!
+  formtastic!
+  inherited_resources!
   jbuilder (~> 1.0.1)
-  jquery-rails
+  jquery-rails (= 2.3.0)
   normalize-rails
   rails (= 4.0.0.beta1)
+  ransack!
+  responders!
   sass-rails (~> 4.0.0.beta1)
   sqlite3
   turbolinks
