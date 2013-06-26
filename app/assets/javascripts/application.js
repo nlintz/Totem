@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require Totem
 //= require angular.min
 //= require_tree ./angular
 //= require_tree .
