@@ -1,5 +1,5 @@
 class WorkflowsController < ApplicationController
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
   	workflows = Workflow.all
@@ -9,6 +9,10 @@ class WorkflowsController < ApplicationController
   end
 
   def show
+    workflows = Workflow.find(params[:id])
+    respond_to do |format|
+      format.json {render json: workflows.to_json(:include => :steps)}
+    end
   end
 
   def new
@@ -16,4 +20,5 @@ class WorkflowsController < ApplicationController
 
   def create
   end
+
 end

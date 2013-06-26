@@ -1,7 +1,8 @@
 Totem::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
   ActiveAdmin.routes(self)
-  resource :workflows
+  resources :workflows
 
   # devise_for :user
   # The priority is based upon order of creation:

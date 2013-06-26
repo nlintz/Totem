@@ -1,4 +1,3 @@
 class Workflow < ActiveRecord::Base
-	belongs_to :user
-	has_many :steps
+  attr_accessible :name, :description
 end
