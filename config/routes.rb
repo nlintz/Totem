@@ -1,4 +1,7 @@
 Totem::Application.routes.draw do
+  resources :totem_flows
+  resources :totem_blocks
+
   root to: 'home#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users

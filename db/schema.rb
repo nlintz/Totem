@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626030438) do
+ActiveRecord::Schema.define(:version => 20130703224234) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,6 +53,23 @@ ActiveRecord::Schema.define(:version => 20130626030438) do
     t.datetime "updated_at"
     t.integer  "stepNumber"
     t.integer  "workflow_id"
+  end
+
+  create_table "totem_blocks", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "position"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "totem_flow_id"
+  end
+
+  create_table "totem_flows", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

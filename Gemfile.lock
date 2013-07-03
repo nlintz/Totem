@@ -41,6 +41,8 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    annotate (2.5.0)
+      rake
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (3.0.2)
@@ -153,6 +155,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  annotate
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails (= 2.3.0)
