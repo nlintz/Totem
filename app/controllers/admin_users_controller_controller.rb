@@ -7,5 +7,5 @@ class AdminUsersControllerController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:email, :encryped_password)
-
+  end
 end

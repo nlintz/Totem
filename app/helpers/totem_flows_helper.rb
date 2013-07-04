@@ -1,0 +1,2 @@
+module TotemFlowsHelper
+end
