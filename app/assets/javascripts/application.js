@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require angular.min
+//= require controllers/SplashController
 //= require home
+$(document).foundation();

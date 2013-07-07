@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+/*
+ * application.scss
+ *
+ * Important! Do *not* use Sprockets "require" syntax.
+ * Use @import to include other stylesheets and Compass mixins.
+ */
+//= require_tree .
+*= foundation_and_overrides *= require foundation_and_overrides

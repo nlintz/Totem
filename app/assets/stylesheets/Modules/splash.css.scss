@@ -1,0 +1,90 @@
+/* Stylings for the Splash Page
+Table of Contents
+
+STRUCTURE
+.btn-totem
+.content-container
+.header
+.page-container
+
+SKIN
+.btn-totem
+.header
+.page-container
+
+ANIMATION
+*/
+
+
+/* STRUCTURE */
+$btn-totem-height: 448px;
+$btn-totem-width: auto;
+$btn-totem-scale: 1;
+$header-height: 25%;
+
+.btn-totem {
+	width:$btn-totem-width;
+	height:$btn-totem-height;
+	transform:scale($btn-totem-scale);
+	-webkit-transform:scale($btn-totem-scale); /* Safari and Chrome */
+
+}
+
+.header {
+	position: relative;
+	height: $header-height;
+}
+.header h1 {
+	text-align: center;
+	position: relative;
+}
+
+.page-container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+/* SKIN */
+$background-texture-url: 'layout/background.png';
+$btn-totem-url: 'icons/btn-totem.png';
+
+//TODO add media queries for images
+.btn-totem {
+	background-image: url(image_path($btn-totem-url));
+	background-repeat:no-repeat;
+}
+
+.header {
+	background-image: -webkit-linear-gradient(top, #89D2F5, #B4DBF5); 
+	background-image: -moz-linear-gradient(top, #89D2F5, #B4DBF5);
+	background-image: -ms-linear-gradient(top, #89D2F5, #B4DBF5);
+	background-image: -o-linear-gradient(top, #89D2F5, #B4DBF5);
+}
+
+.header h1 {
+	color: white;
+	margin-top: 0px;
+	font-size: 800%;
+   	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   	font-weight: 100;
+}
+
+.page-container {
+	background: url(image_path($background-texture-url));
+}
+
+/* Animation */
+.btn-totem:hover
+{
+	-webkit-animation:mymove 2.5s; /* Safari and Chrome */
+}
+@-webkit-keyframes mymove {
+	from   {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		opacity: 0;
+		-webkit-transform: rotate(90deg);
+	}
+}
