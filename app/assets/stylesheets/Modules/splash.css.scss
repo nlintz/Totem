@@ -78,6 +78,7 @@ $btn-totem-url: 'icons/btn-totem.png';
 
 /* Animation */
 @import "../mixins/animation";
+@import "bourbon";
 
 @include keyframes ( mymove ) 
 {
@@ -87,7 +88,7 @@ $btn-totem-url: 'icons/btn-totem.png';
 	}
 	100% {
 		opacity: 0;
-		@include transform(rotate(0deg));
+		@include transform(rotate(90deg));
 	}
 
 }
@@ -96,12 +97,3 @@ $btn-totem-url: 'icons/btn-totem.png';
 {
 	-webkit-animation:mymove 2.5s; /* Safari and Chrome */
 }
-// 	from   {
-// 		opacity: 100;
-// 		-webkit-transform: rotate(0deg);
-// 	}
-// 	to {
-// 		opacity: 0;
-// 		-webkit-transform: rotate(90deg);
-// 	}
-// }
