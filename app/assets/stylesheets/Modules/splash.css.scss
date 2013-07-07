@@ -18,7 +18,7 @@ ANIMATION
 
 /* STRUCTURE */
 $btn-totem-height: 448px;
-$btn-totem-width: 448px;
+$btn-totem-width: auto;
 $btn-totem-scale: 1;
 $header-height: 25%;
 
@@ -77,16 +77,31 @@ $btn-totem-url: 'icons/btn-totem.png';
 }
 
 /* Animation */
+@import "../mixins/animation";
+
+@include keyframes ( mymove ) 
+{
+	0% {
+		opacity: 100;
+		@include transform(rotate(0deg));
+	}
+	100% {
+		opacity: 0;
+		@include transform(rotate(0deg));
+	}
+
+}
+
 .btn-totem-animation
 {
 	-webkit-animation:mymove 2.5s; /* Safari and Chrome */
 }
-@-webkit-keyframes mymove {
-	from   {
-		-webkit-transform: rotate(0deg);
-	}
-	to {
-		opacity: 0;
-		-webkit-transform: rotate(90deg);
-	}
-}
+// 	from   {
+// 		opacity: 100;
+// 		-webkit-transform: rotate(0deg);
+// 	}
+// 	to {
+// 		opacity: 0;
+// 		-webkit-transform: rotate(90deg);
+// 	}
+// }
