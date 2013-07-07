@@ -18,7 +18,7 @@ ANIMATION
 
 /* STRUCTURE */
 $btn-totem-height: 448px;
-$btn-totem-width: auto;
+$btn-totem-width: 448px;
 $btn-totem-scale: 1;
 $header-height: 25%;
 
@@ -52,6 +52,8 @@ $btn-totem-url: 'icons/btn-totem.png';
 //TODO add media queries for images
 .btn-totem {
 	background-image: url(image_path($btn-totem-url));
+	background-size: 66% 66%;
+	background-position:center; 
 	background-repeat:no-repeat;
 }
 
@@ -75,7 +77,7 @@ $btn-totem-url: 'icons/btn-totem.png';
 }
 
 /* Animation */
-.btn-totem:hover
+.btn-totem-animation
 {
 	-webkit-animation:mymove 2.5s; /* Safari and Chrome */
 }
