@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="row content-container">
-			<div ng-class="hide_logo_container" class="small-6 small-centered columns">
+			<div ng-class="hide_logo_container" class="small-6 small-centered columns logo-container">
 				<div ng-class="hide_logo" class="btn-totem" ng-click="transition()"></div>
 			</div>
 			<%= form_for(resource, :html => {:class => "login-form"}, :as => resource_name, :url => session_path(resource_name)) do |f| %>
