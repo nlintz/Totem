@@ -15,19 +15,18 @@ SKIN
 ANIMATION
 */
 
+/* Mixins */
+@import "bourbon";
 
 /* STRUCTURE */
 $btn-totem-height: 448px;
 $btn-totem-width: auto;
-$btn-totem-scale: 1;
 $header-height: 25%;
 
 .btn-totem {
 	width:$btn-totem-width;
 	height:$btn-totem-height;
-	transform:scale($btn-totem-scale);
-	-webkit-transform:scale($btn-totem-scale); /* Safari and Chrome */
-
+	position:relative;
 }
 
 .header {
@@ -37,6 +36,11 @@ $header-height: 25%;
 .header h1 {
 	text-align: center;
 	position: relative;
+}
+
+.login-form {
+	padding-top: 10%;
+	position:relative;
 }
 
 .page-container {
@@ -77,13 +81,11 @@ $btn-totem-url: 'icons/btn-totem.png';
 }
 
 /* Animation */
-@import "../mixins/animation";
-@import "bourbon";
 
-@include keyframes ( mymove ) 
+@include keyframes ( logo-fade ) 
 {
 	0% {
-		opacity: 100;
+		opacity: 1;
 		@include transform(rotate(0deg));
 	}
 	100% {
@@ -92,8 +94,27 @@ $btn-totem-url: 'icons/btn-totem.png';
 	}
 
 }
-
-.btn-totem-animation
+@include keyframes ( logo-container-fade ) 
 {
-	-webkit-animation:mymove 2.5s; /* Safari and Chrome */
+	0% {
+		height: 448px;
+	}
+	100% {
+		height: 0px;
+	}
+
+}
+
+.hide-logo
+{
+	@include animation-name(logo-fade);
+	@include animation-duration(.75s);
+	@include animation-fill-mode(forwards)
+}
+
+.hide-logo-container
+{
+	@include animation-name(logo-container-fade);
+	@include animation-duration(1.5s);
+	@include animation-fill-mode(forwards)
 }
