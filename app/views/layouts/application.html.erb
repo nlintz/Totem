@@ -2,16 +2,12 @@
 <html ng-app="TotemApp">
 <head>
   <title>Totem</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
-
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
-
+	<%= yield %>
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

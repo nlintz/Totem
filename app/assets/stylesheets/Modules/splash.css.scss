@@ -1,0 +1,128 @@
+/* Stylings for the Splash Page
+Table of Contents
+
+STRUCTURE
+.btn-totem
+.content-container
+.header
+.page-container
+
+SKIN
+.btn-totem
+.header
+.page-container
+
+ANIMATION
+*/
+
+/* Mixins */
+@import "bourbon";
+
+/* STRUCTURE */
+$btn-totem-height: 448px;
+$btn-totem-width: auto;
+$header-height: 25%;
+
+.btn-totem {
+	width:$btn-totem-width;
+	height:$btn-totem-height;
+	position:relative;
+}
+
+.header {
+	position: relative;
+	height: $header-height;
+}
+.header h1 {
+	text-align: center;
+	position: relative;
+}
+
+.login-form {
+	position:relative;
+	padding-top: 10%;
+}
+
+.content-container{
+	height: 100%;
+}
+
+.logo-container{
+	height: 100%;
+}
+
+.page-container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+/* SKIN */
+$background-texture-url: 'layout/background.png';
+$btn-totem-url: 'icons/btn-totem.png';
+
+//TODO add media queries for images
+.btn-totem {
+	background-image: url(image_path($btn-totem-url));
+	background-size: 66% 66%;
+	background-position:center; 
+	background-repeat:no-repeat;
+}
+
+.header {
+	background-image: -webkit-linear-gradient(top, #89D2F5, #B4DBF5); 
+	background-image: -moz-linear-gradient(top, #89D2F5, #B4DBF5);
+	background-image: -ms-linear-gradient(top, #89D2F5, #B4DBF5);
+	background-image: -o-linear-gradient(top, #89D2F5, #B4DBF5);
+}
+
+.header h1 {
+	color: white;
+	margin-top: 0px;
+	font-size: 800%;
+   	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   	font-weight: 100;
+}
+
+.page-container {
+	background: url(image_path($background-texture-url));
+}
+
+/* Animation */
+
+@include keyframes ( logo-fade ) 
+{
+	0% {
+		opacity: 1;
+		@include transform(rotate(0deg));
+	}
+	100% {
+		opacity: 0;
+		@include transform(rotate(90deg));
+	}
+
+}
+@include keyframes ( logo-container-fade ) 
+{
+	0% {
+		height: 448px;
+	}
+	100% {
+		height: 0px;
+	}
+
+}
+
+.hide-logo
+{
+	@include animation-name(logo-fade);
+	@include animation-duration(.75s);
+	@include animation-fill-mode(forwards)
+}
+
+.hide-logo-container
+{
+	@include animation-name(logo-container-fade);
+	@include animation-duration(1.5s);
+	@include animation-fill-mode(forwards)
+}

@@ -1,17 +1,66 @@
-<h2>Sign in</h2>
+<div ng-controller="SplashController">
+	<div class="page-container">
+		<div class="header">
+			<div class="row">
+				<div class="small-6 small-centered columns">
+					<h1>Totem</h1>
+				</div>
+			</div>
+		</div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		<div class="row content-container">
+			<div ng-class="hide_logo_container" class="small-6 small-centered columns logo-container">
+				<div ng-class="hide_logo" class="btn-totem" ng-click="transition()"></div>
+			</div>
+			<%= form_for(resource, :html => {:class => "login-form"}, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			  	<div class="row">
+				    <div class="small-6 columns small-centered">
+				     	<div class="row">
+				      		<div class="small-3 columns">
+				      			<label for="email" class="right inline">Email</label>
+				      		</div>
+				      		<div class="small-9 columns">
+				      			<%= f.email_field :email, :autofocus => true %>
+				      		</div>
+				     	</div>
+					    <div class="row">
+					    	<div class="small-3 columns">
+					      		<label for="password" class="right inline">Password</label>
+					      	</div>
+					      	<div class="small-9 columns">
+					      		<%= f.password_field :password %>
+					      	</div>
+					    </div>
+  						<div class="row">
+  							<div class="small-9 small-offset-3 columns">
+  								<%= f.submit "Sign in", :class => 'button' %>
+  							</div>
+					    </div>
+					    <div class="row">
+					    	<div class="small-9 small-offset-3 columns">
+					    		<%= render "devise/shared/links" %>
+					    	</div>
+					    </div>
+				    </div>
+			  	</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<!---
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	  <div><%= f.label :email %><br />
+	  <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	  <div><%= f.label :password %><br />
+	  <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+	  <% if devise_mapping.rememberable? -%>
+	    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+	  <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+	  <div><%= f.submit "Sign in" %></div>
+	<% end %>
 
-<%= render "devise/shared/links" %>
+	<%= render "devise/shared/links" %>
+--->
