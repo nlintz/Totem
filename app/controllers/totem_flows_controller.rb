@@ -3,4 +3,9 @@ class TotemFlowsController < ApplicationController
 		@totem_flows = TotemFlow.all
 		render json: @totem_flows
 	end
+
+	def show
+		@totem_flow = TotemFlow.find(params[:id])
+		render json: @totem_flow
+	end
 end

@@ -15,5 +15,6 @@
 //= require foundation
 //= require angular.min
 //= require home
-//= require controllers/SplashController
+//= require controllers/Controllers
+//= require services/Services
 $(document).foundation();
