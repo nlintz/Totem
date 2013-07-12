@@ -17,4 +17,7 @@
 //= require home
 //= require controllers/Controllers
 //= require services/Services
-$(document).foundation();
+//= require_tree .
+
+// $(document).foundationTopBar();
+$(document).foundationNavigation();

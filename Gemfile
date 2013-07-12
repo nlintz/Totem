@@ -17,6 +17,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation', '~> 3.1.1'
 end
 
 
@@ -26,7 +27,6 @@ gem 'devise'
 gem 'activeadmin'
 gem 'annotate'
 
-gem 'zurb-foundation', '~> 4.0.0'
 gem 'bourbon'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
