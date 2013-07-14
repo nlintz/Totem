@@ -17,12 +17,12 @@ ANIMATION
 
 /* Mixins */
 @import "bourbon";
-@import "foundation";
+// @import "foundation";
 
 /* STRUCTURE */
 $btn-totem-height: 448px;
-$btn-totem-width: auto;
-$header-height: 25%;
+$btn-totem-width: 448px;
+$header-height: 10em;
 
 .btn-totem {
 	width:$btn-totem-width;
@@ -33,6 +33,7 @@ $header-height: 25%;
 .header {
 	position: relative;
 	height: $header-height;
+	min-height: 2em;
 }
 .header h1 {
 	text-align: center;
