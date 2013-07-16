@@ -1,0 +1,12 @@
+/* STRUCTURE  */
+
+/* SKIN */
+$background-texture-url: 'layout/background.png';
+
+body {
+	background: url(image_path($background-texture-url)) !important;
+}
+
+.row {
+	max-width: 100% !important;
+}
