@@ -1,0 +1,12 @@
+$background-texture-url: 'layout/build_texture.png';
+$sidebar-texture-url: 'layout/sidebar_texture.png';
+
+
+.build {
+	background: url(image_path($background-texture-url)) !important;
+	
+}
+
+.sidebar {
+	background: url(image_path($sidebar-texture-url)) !important;
+}

@@ -1,12 +1,18 @@
 /* STRUCTURE  */
+.row {
+	max-width: 100% !important;
+}
 
+.full {
+	// position: relative !important;
+	padding: 20px 0 50% 0;
+}
 /* SKIN */
 $background-texture-url: 'layout/background.png';
 
 body {
 	background: url(image_path($background-texture-url)) !important;
-}
-
-.row {
-	max-width: 100% !important;
+	height: 100%;
+	width: 100%;
+	position:fixed !important;
 }
