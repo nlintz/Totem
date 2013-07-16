@@ -1,9 +1,23 @@
+/* STRUCTURE */
+
+$top-bar-height: 3em;
+.top-bar {
+	height: $top-bar-height !important;
+	max-width: 100% !important;
+}
+
+.nav-bar li {
+	position:relative;
+	display: inline-block;
+	height: $top-bar-height;
+	vertical-align: top;
+}
+
+/* SKINS */
 .top-bar {
 	background-image: -webkit-linear-gradient(left, #89D1F4, #B4DBF5) !important; 
 	background-image: -moz-linear-gradient(left, #89D1F4, #B4DBF5) !important;
 	background-image: -ms-linear-gradient(left, #89D1F4, #B4DBF5) !important;
 	background-image: -o-linear-gradient(left, #89D1F4, #B4DBF5) !important;
-	height: 3em !important;
-	max-width: 100% !important;
 }
 
