@@ -1,26 +1,22 @@
-<nav class="top-bar hide-for-small">
-      <ul class="title-area">
-        <!-- Title Area -->
-        <li class="name">
-          <h1><a href="/">Totem</a></h1>
-        </li>
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
+<div class="page-container">
+<div class="row top-bar">
+    <ul class="logo">
+      <a>TOTEM</a>
+    </ul
+    <div class="small-1 columns">
+       <a class="nav" href="/home">Totem Logo</a>
+    </div>
+    <div class="small-5 columns">
+      <div class="row">
+        <a class="nav" href="/build">Build</a>
+      </div>
+    </div>
+    <div class="small-2 columns">
+       <a class="nav" href="/build">Explore</a>
+    </div>
+    </div>
 
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="divider"></li>
-          <li><a href="/build">Build</a></li>
-          <li class="divider"></li>
-          <li><a href="/explore">Explore</a></li>
-          <li class="divider"></li>
-          <li><a href="/user"><%= current_user.email%></a></li>
-          <li class="divider"></li>
-        </ul>
-      </section>
-    </nav>
+  <div ng-view>
+  </div>
 
-<div ng-view>
 </div>
