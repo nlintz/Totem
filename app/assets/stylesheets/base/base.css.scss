@@ -5,10 +5,10 @@
 
 .full {
 	// position: relative !important;
-	padding: 20px 0 50% 0;
+	padding: 20px 0 100% 0;
 }
 /* SKIN */
-$background-texture-url: 'layout/background.png';
+$background-texture-url: 'background.png';
 
 body {
 	background: url(image_path($background-texture-url)) !important;

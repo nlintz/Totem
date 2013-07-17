@@ -29,6 +29,7 @@ $header-height: 10em;
 .btn-totem {
 	width:$btn-totem-width;
 	height:$btn-totem-height;
+	margin: auto;
 	position:relative;
 }
 
@@ -62,8 +63,8 @@ $header-height: 10em;
 }
 
 /* SKIN */
-$background-texture-url: 'layout/background.png';
-$btn-totem-url: 'icons/btn-totem.png';
+$background-texture-url: 'background.png';
+$btn-totem-url: 'btn-totem.png';
 
 //TODO add media queries for images
 .btn-totem {
