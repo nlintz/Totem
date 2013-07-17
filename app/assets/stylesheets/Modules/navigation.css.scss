@@ -1,10 +1,9 @@
+$top-bar-height: 3em;
+$btn-logo: '';
 /* STRUCTURE */
 
-$top-bar-height: 3em;
-
-.top-bar {
-	height: $top-bar-height !important;
-	margin-bottom: 0px !important;
+.logo-nav {
+	background: url(image_path($background-texture-url)) !important;
 }
 
 .nav-bar li {
@@ -14,8 +13,13 @@ $top-bar-height: 3em;
 	vertical-align: top;
 }
 
-/* SKINS */
+.top-bar {
+	height: $top-bar-height !important;
+	margin-bottom: 0px !important;
+}
 
+
+/* SKINS */
 
 .top-bar {
 	background-image: -webkit-linear-gradient(left, #89D1F4, #B4DBF5) !important; 
