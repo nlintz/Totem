@@ -23,3 +23,4 @@
 
 // $(document).foundationTopBar();
 $(document).foundationNavigation();
+$(function(){ $(document).foundation(); });
