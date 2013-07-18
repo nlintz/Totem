@@ -1,7 +1,6 @@
 Controllers = angular.module('Controllers', ['Services']);
 
 Controllers.controller('SplashController', ['$scope', function($scope) {
-    console.log('true')
     $scope.transition_to_login = "false";
     $scope.transition = function(){
     	$scope.hide_logo = 'hide-logo';

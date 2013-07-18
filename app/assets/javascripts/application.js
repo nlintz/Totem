@@ -14,10 +14,11 @@
 //= require jquery_ujs
 //= require jquery.ui.sortable
 //= require foundation
+
 //= require angular.min
-//= require services/Services
 //= require home
 //= require controllers/Controllers
+//= require services/Services
 //= require angular-ui
 // $(document).foundationTopBar();
 $(function(){ $(document).foundation(); });
