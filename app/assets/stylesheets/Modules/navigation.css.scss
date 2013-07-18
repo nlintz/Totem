@@ -1,6 +1,7 @@
 $top-bar-height: 3em;
 $background-texture-url: 'background.png';
 $totem-logo-url: 'images/totem_logo.gif';
+$add-totem-url: 'add_totem_shadow.gif';
 
 /* STRUCTURE */
 
@@ -11,13 +12,17 @@ $totem-logo-url: 'images/totem_logo.gif';
 	padding-left: 2em;
 }
 
-.left-nav input {
+.left-nav input[type=search] {
 	padding: 15px;
-    background: url(image_path('search_bar')) !important;
+    // background: url(image_path('search_bar')) !important;
     margin: 0 0 10px 0;
 
 }
 .left-nav li a{
+	background-color: transparent !important;
+}
+
+.left-nav li a:hover{
 	background-color: transparent !important;
 }
 
@@ -44,11 +49,29 @@ ul.main-nav .right-controls {
 	margin-right: .5em;
 }
 
-ul.main-nav .right-controls img {
-	// height: 2em;
-	margin: 50% auto;
-	// margin-left: 1em;
+ul.main-nav .right-controls {
+	a {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	}
+
+	a.new-totem {
+		background-image: url(image_path('add_totem_shadow.gif'));
+		background-size: 27px 33px;
+	}
+	a.settings {
+		background-image: url(image_path('setting_gear_shadow.gif'));
+		background-size: 25px 25px;
+	}
+	a.logout {
+		background-image: url(image_path('sign_out_shadow.gif'));
+	}
 }
+	
+
+
 
 ul.main-nav .right-controls #add-totem {
 	// height: 2em;

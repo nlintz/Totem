@@ -4,6 +4,8 @@ $sidebar-texture-url: 'sidebar_texture.png';
 
 .build {
 	background: url(image_path($build-texture-url)) !important;
+	background-repeat:no-repeat;
+
 	
 }
 
