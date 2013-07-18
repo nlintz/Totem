@@ -15,12 +15,9 @@
 //= require jquery.ui.sortable
 //= require foundation
 //= require angular.min
-//= require angular-ui
+//= require services/Services
 //= require home
 //= require controllers/Controllers
-//= require services/Services
-//= require_tree .
-
+//= require angular-ui
 // $(document).foundationTopBar();
-$(document).foundationNavigation();
 $(function(){ $(document).foundation(); });
