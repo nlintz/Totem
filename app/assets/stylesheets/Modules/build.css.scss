@@ -1,9 +1,9 @@
-$background-texture-url: 'build_texture.png';
+$build-texture-url: 'build_texture.png';
 $sidebar-texture-url: 'sidebar_texture.png';
 
 
 .build {
-	background: url(image_path($background-texture-url)) !important;
+	background: url(image_path($build-texture-url)) !important;
 	
 }
 

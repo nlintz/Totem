@@ -2,42 +2,42 @@
 	<div class="page-container">
 		<div class="header">
 			<div class="row">
-				<div class="small-6 small-centered columns">
+				<div class="small-12 small-centered columns">
 					<h1>Totem</h1>
 				</div>
 			</div>
 		</div>
 
 		<div class="row content-container">
-			<div ng-class="hide_logo_container" class="small-6 small-centered columns logo-container">
+			<div ng-class="hide_logo_container" class="small-12 small-centered columns logo-container">
 				<div ng-class="hide_logo" class="btn-totem" ng-click="transition()"></div>
 			</div>
 			<%= form_for(resource, :html => {:class => "login-form"}, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 			  	<div class="row">
-				    <div class="small-6 columns small-centered">
+				    <div class="small-4 small-centered columns">
 				     	<div class="row">
-				      		<div class="small-3 columns">
+					    	<div class="small-4 columns">
 				      			<label for="email" class="right inline">Email</label>
-				      		</div>
-				      		<div class="small-9 columns">
+					      	</div>
+					      	<div class="small-8 columns">
 				      			<%= f.email_field :email, :autofocus => true %>
-				      		</div>
-				     	</div>
+					      	</div>
+					    </div>
 					    <div class="row">
-					    	<div class="small-3 columns">
+					    	<div class="small-4 columns">
 					      		<label for="password" class="right inline">Password</label>
 					      	</div>
-					      	<div class="small-9 columns">
+					      	<div class="small-8 columns">
 					      		<%= f.password_field :password %>
 					      	</div>
 					    </div>
   						<div class="row">
-  							<div class="small-9 small-offset-3 columns">
+  							<div class="small-8 small-offset-4 columns">
   								<%= f.submit "Sign in", :class => 'button' %>
   							</div>
 					    </div>
 					    <div class="row">
-					    	<div class="small-9 small-offset-3 columns">
+					    	<div class="small-8 small-offset-4 columns">
 					    		<%= render "devise/shared/links" %>
 					    	</div>
 					    </div>

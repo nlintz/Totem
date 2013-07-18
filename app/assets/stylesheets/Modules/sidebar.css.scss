@@ -9,7 +9,7 @@ $pictureIcon: 'attach_picture.gif';
 	background-repeat:no-repeat;
 	background-size: 50% auto;
 	margin: auto auto;
-	background-position: 50% 50%;
+	background-position: 63% 50%;
 	cursor: pointer;
 	// opacity: 1;
 }
@@ -44,7 +44,14 @@ $pictureIcon: 'attach_picture.gif';
 	padding-right:0 !important;
 }
 
-.sidebar .row, .columns {
+.sidebar .row {
+	margin-left:0 !important;
+	margin-right:0 !important;
+	padding-left:0 !important;
+	padding-right:0 !important;
+}
+
+.sidebar .columns {
 	margin-left:0 !important;
 	margin-right:0 !important;
 	padding-left:0 !important;

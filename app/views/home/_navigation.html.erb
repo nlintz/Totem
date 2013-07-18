@@ -1,31 +1,50 @@
-<div class="">
+<section class="top-bar-section">
   <div class="top-bar">
-    <ul class="nav-bar">
-      <div class="row">
-        <div class="small-1 columns">
-          <li class="active logo-nav"></li>
-        </div>
-        <div class="small-5 columns">
-          <li class="active"><h4 href="#">{Name}</h4></li>
-          <li class="active"><h4 href="#">{build}</h4></li>
-          <li class="active"><h4 href="#">{explore}</h4></li>
-        </div>
-        <div class="small-5 columns">
-          <li>
-            <div class="row collapse">
-              <div class="small-11 columns">
-                <input type="text">
-              </div>
-              <div class="small-1 columns">
-                <a href="#" class="alert button">Search</a>
-              </div>
-            </div>
-          </li>
-        </div>
-        <div class="small-1 columns">
-          <li class="active"><a href="#">{settings}</a></li>
-        </div>
-      </div>
+    <ul class="title-area main-nav">
+      <!-- Link to view -->
+      <li class="totem-logo name">
+          <img src="/images/totem_logo.gif">
+          </img>
+      </li>
+    </ul>
+    <ul class="left main-nav left-nav">
+      <!-- Build has the same create totem icon -->
+      <!-- Each brings to a lib view. explore maps to view but with more options -->
+      <li class="name">
+        <a href="#">
+          <h2>Build</h2>
+        </a>
+      </li> 
+      <!-- only build your totems -->
+      <li class="name">
+        <a href="#">
+          <h2>View</h2>
+        </a>
+      </li>
+      <li class="name">
+        <a href="#">
+          <h2> Explore </h2>
+        </a>
+      </li>
+      <li class="name">
+        <a href="#">
+          <input alt="search" placeholder="Search" type="text"/>
+        </a>
+      </li>
+    </ul>
+    <ul class="right main-nav">
+      <li class="name right-controls">
+        <img id="add-totem" src="/images/add_totem_shadow.gif">
+        </img>
+      </li>
+      <li class="name right-controls">
+        <img src="/images/setting_gear_shadow.gif">
+        </img>
+      </li>
+      <li class="name right-controls">
+        <img id="logout" src="/images/sign_out_shadow.gif">
+        </img>
+      </li>
     </ul>
   </div>
-</div>
+</section>

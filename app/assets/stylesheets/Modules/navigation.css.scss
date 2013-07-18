@@ -1,9 +1,64 @@
 $top-bar-height: 3em;
-$btn-logo: '';
+$background-texture-url: 'background.png';
+$totem-logo-url: 'images/totem_logo.gif';
+
 /* STRUCTURE */
 
-.logo-nav {
-	background: url(image_path($background-texture-url)) !important;
+// .logo-nav {
+// 	background: url(image_path($background-texture-url)) !important;
+// }
+.left-nav {
+	padding-left: 2em;
+}
+
+.left-nav input {
+	padding: 15px;
+    background: url(image_path('search_bar')) !important;
+    margin: 0 0 10px 0;
+
+}
+.left-nav li a{
+	background-color: transparent !important;
+}
+
+.left-nav li a h2{
+	color: #fff;
+	font-weight: 100;
+	font-size: 2em;
+	line-height: 2em;
+	margin-right: .1em;
+	margin: 0 auto;
+}
+.main-nav {
+	background-color:transparent !important;
+
+}
+ul.main-nav .totem-logo img {
+	height: 2em;
+	margin-top: .2em;
+	margin-left: 1em;
+}
+
+ul.main-nav .right-controls {
+	margin-left:.1em;
+	margin-right: .5em;
+}
+
+ul.main-nav .right-controls img {
+	// height: 2em;
+	margin: 50% auto;
+	// margin-left: 1em;
+}
+
+ul.main-nav .right-controls #add-totem {
+	// height: 2em;
+	// margin: 0% auto;
+	// margin-left: 1em;
+}
+ul.main-nav .right-controls #logout {
+	// height: 2em;
+	// margin: 0% auto;
+	// margin-left: 1em;
 }
 
 .nav-bar li {
@@ -16,6 +71,7 @@ $btn-logo: '';
 .top-bar {
 	height: $top-bar-height !important;
 	margin-bottom: 0px !important;
+	margin-top: 0px !important;
 }
 
 
