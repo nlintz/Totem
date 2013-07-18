@@ -4,6 +4,11 @@ $addLinkIcon: 'link_to.gif';
 $stopIcon: 'access_needed.gif';
 $personIcon: 'see_person.gif';
 $pictureIcon: 'attach_picture.gif';
+$sidebar-texture-url: 'sidebar_texture.png';
+
+.sidebar {
+	background: url(image_path($sidebar-texture-url)) !important;
+}
 
 .sidebar-btn {
 	background-repeat:no-repeat;
