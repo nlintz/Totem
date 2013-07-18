@@ -41,6 +41,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    angular-ui-rails (0.4.0.2)
     annotate (2.5.0)
       rake
     arbre (1.0.1)
@@ -85,6 +86,9 @@ GEM
     jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.0.3)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.8.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
@@ -172,11 +176,13 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  angular-ui-rails
   annotate
   bourbon
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails (= 2.3.0)
+  jquery-ui-rails
   nokogiri
   rack (~> 1.1)
   rails (= 3.2.13)

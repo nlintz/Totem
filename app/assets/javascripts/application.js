@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.sortable
 //= require foundation
 //= require angular.min
+//= require angular-ui
 //= require home
 //= require controllers/Controllers
 //= require services/Services

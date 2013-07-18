@@ -5,7 +5,12 @@
 		<div class="row">
 			<div class="small-12 pagination-centered">
                 <div class="title-container">
-    			 <h1>Build</h1>
+    		      <h1>Build</h1>
+                </div>
+                <div class="totem-view-container">
+                    <ul ng-model="items" ui-sortable>
+                        <li ng-repeat="item in items">{{item}}</li>
+                    </ul>
                 </div>
     		</div>
     	</div>
@@ -27,9 +32,6 @@
     	</div>
     	<div class="row">
 			<div class="small-12 pagination-centered">
-    			<img src="none">
-    				 
-    			</img>
     		</div>
     	</div>
 	</div>

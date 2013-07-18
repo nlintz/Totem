@@ -1,4 +1,6 @@
-TotemApp = angular.module('TotemApp', ['Controllers','Services'])
+TotemApp = angular.module('TotemApp', 
+	['Controllers', 'Services', 'ui']
+);
 
 TotemApp.config(['$routeProvider', ($routeProvider) ->
   $routeProvider.when('/splash', { templateUrl: '/assets/splash.html', controller: 'SplashController' } )
