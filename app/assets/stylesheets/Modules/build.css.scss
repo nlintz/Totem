@@ -12,3 +12,8 @@ $sidebar-texture-url: 'sidebar_texture.png';
 .sidebar {
 	background: url(image_path($sidebar-texture-url)) !important;
 }
+
+.title-container {
+	padding-top: 5%;
+	font-size: 1.5em;
+	}
