@@ -1,12 +1,13 @@
 $build-texture-url: 'build_texture.png';
 $sidebar-texture-url: 'sidebar_texture.png';
+$bear-totem-url: 'bear_totem.gif';
+$monkey-totem-url: 'monkey_totem.gif';
+$face-totem-url: 'face_totem.gif';
 
 
 .build {
 	background: url(image_path($build-texture-url)) !important;
-	background-repeat:no-repeat;
-
-	
+	background-repeat:no-repeat;	
 }
 
 .sidebar {
@@ -17,3 +18,7 @@ $sidebar-texture-url: 'sidebar_texture.png';
 	padding-top: 5%;
 	font-size: 1.5em;
 	}
+
+.totem-block {
+	background: url(image_path($monkey_totem_url));
+}

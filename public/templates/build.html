@@ -9,7 +9,11 @@
                 </div>
                 <div class="totem-view-container">
                     <ul ng-model="items" ui-sortable>
-                        <li ng-repeat="item in items">{{item}}</li>
+                        <li ng-repeat="item in items">
+                            <div class="totem-block">
+                                {{item}}
+                            </div>
+                        </li>
                     </ul>
                 </div>
     		</div>
