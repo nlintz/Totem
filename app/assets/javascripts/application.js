@@ -20,5 +20,6 @@
 //= require controllers/Controllers
 //= require services/Services
 //= require angular-ui
+//= require dropzone
 // $(document).foundationTopBar();
 $(function(){ $(document).foundation(); });

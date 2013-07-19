@@ -13,6 +13,27 @@ $face-totem-url: 'face_totem.gif';
 .face-block {
 	background: url(image_path($monkey_totem_url));
 }
+#file-upload {
+	width: 66%;
+	height: 5em;
+	background-color: #3f8db7;
+	border: 1px solid black;
+	border-radius: 4px;
+	display: inline-block;
+	h2 {
+		color:white;
+	}
+}
+#image-dropzone {
+	height:4em;
+	width:25%;
+	background-color: red;
+	display:inline-block;
+	border-radius: 4px;
+}
+#image-dropzone input[type="file"] {
+	opacity: 0;
+}
 .monkey-block {
 	background: url(image_path($monkey_totem_url));
 	background-size: 167px 294px;

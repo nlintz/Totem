@@ -12,4 +12,5 @@ Controllers.controller('BuildController', ['$scope', 'TotemFlows', 'TotemBlocks'
 	// $scope.items = TotemBlocks.query();
 	$scope.items = [1,2,3,4,5,6,7,8]
 	$scope.firstFlow = TotemFlow.get({totemFlowId: 1});
+	var myDropzone = new Dropzone("div#image-dropzone", { url: "/image-upload/1/1"});
 }]);

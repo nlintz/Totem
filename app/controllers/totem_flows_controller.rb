@@ -8,4 +8,7 @@ class TotemFlowsController < ApplicationController
 		@totem_flow = TotemFlow.find(params[:id])
 		render json: @totem_flow
 	end
+
+	def uploadImage
+	end
 end
