@@ -20,10 +20,14 @@ $face-totem-url: 'face_totem.gif';
 .title-container {
 	height: 4em;
 	font-size: 1.5em;
-	
-	h1 {
-		margin-top: 0px;
+	position:relative;
+	h3 {
+		margin-top:0px;
 		margin-bottom: 0px;
+		position: absolute;
+		top: 25%;
+		text-align: center;
+		width: 100%;
 	}
 }
 
@@ -35,6 +39,9 @@ $face-totem-url: 'face_totem.gif';
 	background-position: 50% 50%;
 }
 
+.totem-view-container {
+	padding-top:10%;
+}
 .totem-view-container li {
 	display:inline-block;
 	height:167px;
@@ -43,10 +50,4 @@ $face-totem-url: 'face_totem.gif';
 
 .totem-view-container ul {
 	line-height:0;
-}
-
-.view-container {
-	height: 100%;
-	overflow-y: scroll;
-	padding-bottom: 2em;
 }

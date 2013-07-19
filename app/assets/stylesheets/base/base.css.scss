@@ -23,3 +23,9 @@ body {
 	position: fixed;
 	height: 100%;
 }
+
+.overflow-container {
+	height: 100%;
+	overflow-y: auto;
+	padding-bottom: 3em;
+}
