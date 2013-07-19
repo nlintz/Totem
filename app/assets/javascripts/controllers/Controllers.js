@@ -9,6 +9,7 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
 }]);
 
 Controllers.controller('BuildController', ['$scope', 'TotemFlows', 'TotemBlocks', function($scope, TotemFlow, TotemBlocks) {
-	$scope.items = TotemBlocks.query();
+	// $scope.items = TotemBlocks.query();
+	$scope.items = [1,2,3,4,5,6,7,8]
 	$scope.firstFlow = TotemFlow.get({totemFlowId: 1});
 }]);

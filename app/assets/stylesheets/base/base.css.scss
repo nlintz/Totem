@@ -3,10 +3,12 @@
 	max-width: 100% !important;
 }
 
-.full {
-	// position: relative !important;
-	padding: 0 0 100% 0;
+.row-full-width {
+	width: 100% !important;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
 }
+
 /* SKIN */
 $background-texture-url: 'background.png';
 
@@ -15,4 +17,9 @@ body {
 	height: 100%;
 	width: 100%;
 	position:fixed !important;
+}
+
+.content {
+	position: fixed;
+	height: 100%;
 }

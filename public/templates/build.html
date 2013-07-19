@@ -1,21 +1,20 @@
 <!-- <ng-include src=" '/partials/view_totem.html' "></ng-include> -->
-<div class="row full">
-	
-	<div class="small-4 columns build full shadow-inset">
-		<div class="row">
+<div class="row content">
+	<div class="small-4 columns build-background view-container">
+		<div class="row row-full-width">
 			<div class="small-12 pagination-centered">
                 <div class="title-container">
     		      <h1>Build</h1>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="small-12 pagination-centered">
+        <div class="row row-full-width">
+            <div class="small-12">
                 <div class="totem-view-container">
                     <ul ng-model="items" ui-sortable>
                         <li ng-repeat="item in items">
                             <div class="monkey-block totem-block">
-                                {{item}}
+                                <!-- {{item}} -->
                             </div>
                         </li>
                     </ul>
@@ -23,7 +22,7 @@
     		</div>
     	</div>
 	</div>
-	<div class="small-7 columns build full shadow-inset">
+	<div class="small-7 columns build-background view-container">
 		<div class="row">
 			<div class="small-11 small-offset-1">
     			<h3>
@@ -43,7 +42,7 @@
     		</div>
     	</div>
 	</div>
-	<div class="small-1 columns shadow-inset sidebar full">
+	<div class="small-1 columns sidebar full">
 		<ng-include src=" 'partials/sidebar.html' "></ng-include>
 	</div>
 </div>
