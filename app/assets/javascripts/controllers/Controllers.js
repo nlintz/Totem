@@ -18,9 +18,22 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
         }
     })
     $scope.blockType = 'monkey-block'
+    
     $scope.setSelectedBlock = function(totemBlock) {
         $scope.selectedBlock = totemBlock
     }
+    $scope.addBlock = function(){
+        $scope.totemBlocks.push('1')
+        $scope.selectedBlock = $scope.totemBlocks[$scope.totemBlocks.length -1]
+        console.log('block added');
+        var totemFlowId = $scope.totemFlow.id
+        $.post("/build/totem_flows/"+totemFlowId + "/" + 'createNew');
+    }
+
+    $scope.deleteBlock = function() {
+        
+    }
+
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
 	filepicker.makeDropPane($('#drop-target')[0], {
 		    multiple: false,
