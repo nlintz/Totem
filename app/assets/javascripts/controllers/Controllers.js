@@ -8,15 +8,15 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
     }
 }]);
 
-Controllers.controller('BuildController', ['$scope', 'TotemFlows', 'TotemBlocks', function($scope, TotemFlow, TotemBlocks) {
-	$scope.items = TotemBlocks.get({totem_flow_id: 1})
+Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows', 'TotemBlocks', function($scope, $routeParams, TotemFlow, TotemBlocks) {
+	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId})
+	// if (!$scope.totemBlocks[0]){
+	// 	$scope.totemBlocks[0]=[1]
+	// 	$scope.apply()
+	// }
+	$scope.totemBlocks = [1]
+	console.log($scope.totemBlocks[0])
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
-	$scope.items = [1,2,3,4,5,6,7,8]
-	// $scope.firstFlow = TotemFlow.get({totemFlowId: 1});
-	// filepicker.pick(function(InkBlob){
-  // console.log(InkBlob.url);
-
-	
 	filepicker.makeDropPane($('#drop-target')[0], {
 		    multiple: false,
     dragEnter: function() {
@@ -36,7 +36,7 @@ Controllers.controller('BuildController', ['$scope', 'TotemFlows', 'TotemBlocks'
         $("#drop-target").text("Done, see result below");
         console.log(InkBlob[0].url)
         $("#uploadPreview").attr('src', InkBlob[0].url)
-        $.post("");
+        $.post("/image-upload/:totem_flow_id/:totem_block_id'");
     },
     onError: function(type, message) {
         $("#uploadPreview").text('('+type+') '+ message);
