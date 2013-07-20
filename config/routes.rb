@@ -3,7 +3,7 @@ Totem::Application.routes.draw do
   resources :totem_blocks
 
   root to: 'home#index'
-  match '/image-upload/:totem_flow_id/:totem_block_id' => 'totemFlows#uploadImage'
+  match '/image-upload/:totem_flow_id/:id' => 'totemFlows#uploadImage'
 
   scope '/build' do
     resources :totem_flows do

@@ -10,5 +10,6 @@ class TotemFlowsController < ApplicationController
 	end
 
 	def uploadImage
+		render json: "uploadsucceeded"
 	end
 end
