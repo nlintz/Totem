@@ -1,10 +1,15 @@
 Totem::Application.routes.draw do
-  resources :totem_flows
+  
   resources :totem_blocks
 
   root to: 'home#index'
   match '/image-upload/:totem_flow_id/:totem_block_id' => 'totemFlows#uploadImage'
 
+  scope '/build' do
+    resources :totem_flows do
+      resources :totem_blocks
+    end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   ActiveAdmin.routes(self)

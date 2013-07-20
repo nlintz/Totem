@@ -5,5 +5,8 @@ Services.factory('TotemFlows', ['$resource', function($resource){
 }]);
 
 Services.factory('TotemBlocks', ['$resource', function($resource){
-	return $resource('/totem_blocks/:totemFlowId');
+	return $resource('/build/totem_flows/:totem_flow_id/totem_blocks/:totem_block_id', 
+		{ totem_flow_id: '@totem_flow_id',
+		totem_block_id: '@totem_block_id' 
+	});
 }]);

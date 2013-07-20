@@ -58,5 +58,7 @@ module Totem
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.filepicker_rails.api_key = "A4Diahs8GTUutiDyZ8MGPz"
   end
 end
