@@ -9,11 +9,18 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
 }]);
 
 Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows', 'TotemBlocks', function($scope, $routeParams, TotemFlows, TotemBlocks) {
-	$scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
-	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId})
-
-    console.log($scope.totemBlocks)
-
+    $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
+	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){
+        $scope.selectedBlock = data[0];
+        for (i in $scope.totemBlocks) {
+            $scope.totemBlocks[i].title = $scope.totemBlocks[i].title ? $scope.totemBlocks[i].title : "Add Title"
+            $scope.totemBlocks[i].content = $scope.totemBlocks[i].content ? $scope.totemBlocks[i].content : "Add Text"
+        }
+    })
+    $scope.blockType = 'monkey-block'
+    $scope.setSelectedBlock = function(totemBlock) {
+        $scope.selectedBlock = totemBlock
+    }
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
 	filepicker.makeDropPane($('#drop-target')[0], {
 		    multiple: false,
@@ -32,14 +39,12 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
     onSuccess: function(InkBlob) {
     	$('#drop-target').hide()
         $("#drop-target").text("Done, see result below");
-        console.log(InkBlob[0].url)
         $("#uploadPreview").attr('src', InkBlob[0].url)
 
-		$scope.selectedBlock = $scope.totemBlocks[0];
-		var totemFlowId = $scope.totemFlow.id.toString()
-		var totemBlockId = $scope.selectedBlock.id.toString()
-
-        $.post("/image-upload/"+totemFlowId + "/" + totemBlockId);
+		var totemFlowId = $scope.totemFlow.id
+		var totemBlockId = $scope.selectedBlock.id
+        $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
+        $scope.selectedBlock.block_image_url = InkBlob[0].url;
     },
     onError: function(type, message) {
         $("#uploadPreview").text('('+type+') '+ message);

@@ -6,8 +6,7 @@
                 <div class="totem-view-container">
                     <ul ng-model="items" ui-sortable>
                         <li ng-repeat="totemBlock in totemBlocks">
-                            <div class="monkey-block totem-block">
-                                <!-- {{item}} -->
+                            <div class="totem-block" ng-class="blockType" ng-click="setSelectedBlock(totemBlock)">
                             </div>
                         </li>
                     </ul>
@@ -19,8 +18,7 @@
 		<div class="row row-full-width">
 			<div class="small-12 pagination-centered">
     			<div class="title-container">
-                    <h3>
-                        Getting Perforce Access
+                    <h3 ng-bind="selectedBlock.title">
                     </h3>
                 </div>
     		</div>
@@ -28,8 +26,7 @@
     	<div class="row">
 			<div class="small-11 small-offset-1">
                 <div class="text-instructions-container">
-        			<p>
-        				Don't worry, you cant! 
+        			<p ng-bind="selectedBlock.content">
         			</p>
                 </div>
     		</div>
@@ -39,7 +36,7 @@
                 <div id="drop-target">
                     Drag Image Here
                 </div>
-                <img id="uploadPreview" src=""></img>
+                <img id="uploadPreview" ng-show="selectedBlock.block_image_url"ng-src={{selectedBlock.block_image_url}}></img>
     		</div>
     	</div>
 	</div>
