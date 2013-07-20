@@ -12,7 +12,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
 	$scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId})
 
-        // console.log($scope.selectedBlock.id)
+    console.log($scope.totemBlocks)
 
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
 	filepicker.makeDropPane($('#drop-target')[0], {
