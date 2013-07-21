@@ -27,6 +27,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
     })
 
     $scope.startEditTitle = function(){
+        $scope.editingBlockContent = false;
         $scope.editingBlockTitle = true;
     }
     $scope.endEditTitle = function() {
@@ -34,6 +35,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
     }
 
     $scope.startEditContent = function(){
+        $scope.editingBlockTitle = false;
         $scope.editingBlockContent = true;
     }
 
