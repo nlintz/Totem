@@ -46,6 +46,9 @@ $face-totem-url: 'face_totem.gif';
 	background: url(image_path($monkey_totem_url));
 	background-size: 167px 294px;
 }
+.selectedBlock {
+	border: 1px red solid;
+}
 .title-container {
 	height: 4em;
 	font-size: 1.5em;

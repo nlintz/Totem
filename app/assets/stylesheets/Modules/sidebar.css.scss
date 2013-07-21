@@ -1,4 +1,5 @@
-$addTotemIcon: 'profile_emoticon.gif';
+$add-block-url: 'add_totem.gif';
+$remove-block-url: 'delete_totem.gif';
 $addVideoIcon: 'video_camera.gif';
 $addLinkIcon: 'link_to.gif';
 $stopIcon: 'access_needed.gif';
@@ -24,10 +25,10 @@ $sidebar-texture-url: 'sidebar_texture.png';
 
 
 .btn-add-block {
-	background-image: url(image_path($addTotemIcon));
+	background-image: url(image_path($add-block-url));
 }
-.btn-video {
-	background-image: url(image_path($addVideoIcon));
+.btn-remove-block {
+	background-image: url(image_path($remove-block-url));
 }
 .btn-link {
 	background-image: url(image_path($addLinkIcon));

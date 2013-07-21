@@ -11,27 +11,48 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
 Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows', 'TotemBlocks', function($scope, $routeParams, TotemFlows, TotemBlocks) {
     $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){
-        $scope.selectedBlock = data[0];
+        $scope.selectedBlockIndex = 0;
+        $scope.selectedBlock = data[$scope.selectedBlockIndex];
         for (i in $scope.totemBlocks) {
             $scope.totemBlocks[i].title = $scope.totemBlocks[i].title ? $scope.totemBlocks[i].title : "Add Title"
             $scope.totemBlocks[i].content = $scope.totemBlocks[i].content ? $scope.totemBlocks[i].content : "Add Text"
         }
     })
-    $scope.blockType = 'monkey-block'
     
-    $scope.setSelectedBlock = function(totemBlock) {
-        $scope.selectedBlock = totemBlock
+    $scope.setSelectedBlock = function(totemBlock, index) {
+        $scope.selectedBlock = totemBlock;
+        $scope.selectedBlockIndex = index;
     }
     $scope.addBlock = function(){
-        $scope.totemBlocks.push('1')
+        var newBlock = []
+        $scope.totemBlocks.push(newBlock)
         $scope.selectedBlock = $scope.totemBlocks[$scope.totemBlocks.length -1]
-        console.log('block added');
+        $scope.selectedBlockIndex = $scope.totemBlocks.indexOf($scope.selectedBlock)
+        
+        $scope.selectedBlock.title = $scope.selectedBlock.title ? $scope.selectedBlock.title : "Add Title"
+        $scope.selectedBlock.content = $scope.selectedBlock.title ? $scope.selectedBlock.text : "Add Text"
         var totemFlowId = $scope.totemFlow.id
-        $.post("/build/totem_flows/"+totemFlowId + "/" + 'createNew');
+        $.post("/build/totem_flows/"+totemFlowId + "/" + 'createNew', function(data){
+            $scope.totemBlocks[$scope.selectedBlockIndex] = data;
+            $scope.selectedBlock = $scope.totemBlocks[$scope.selectedBlockIndex]
+        });
     }
 
-    $scope.deleteBlock = function() {
-        
+    $scope.removeBlock = function() {
+        if ($scope.totemBlocks.length == 0){
+            return
+        }
+        else if ($scope.totemBlocks.length == 1) {
+            TotemBlocks.delete({totem_flow_id: $routeParams.totemFlowId, totem_block_id: $scope.selectedBlock.id})
+            
+            $scope.totemBlocks.splice($scope.totemBlocks.indexOf($scope.selectedBlock), 1)
+        }
+        else {
+            TotemBlocks.delete({totem_flow_id: $routeParams.totemFlowId, totem_block_id: $scope.selectedBlock.id})
+            var index = $scope.totemBlocks.indexOf($scope.selectedBlock)
+            $scope.totemBlocks.splice($scope.totemBlocks.indexOf($scope.selectedBlock)-1, 1)
+        }
+
     }
 
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
@@ -50,14 +71,16 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
         });
     },
     onSuccess: function(InkBlob) {
-    	$('#drop-target').hide()
+    	// $('#drop-target').hide()
         $("#drop-target").text("Done, see result below");
         $("#uploadPreview").attr('src', InkBlob[0].url)
 
 		var totemFlowId = $scope.totemFlow.id
 		var totemBlockId = $scope.selectedBlock.id
+        var imgUrl = InkBlob[0].url;
+        $scope.selectedBlock.block_image_url = imgUrl;
+        $scope.$apply()
         $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
-        $scope.selectedBlock.block_image_url = InkBlob[0].url;
     },
     onError: function(type, message) {
         $("#uploadPreview").text('('+type+') '+ message);

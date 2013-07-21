@@ -6,13 +6,19 @@ class TotemBlocksController < ApplicationController
 
   def createNew
   	@totem_flow = TotemFlow.find(params[:totem_flow_id])
-  	@totem_flow.totem_blocks.create()
-  	render json: @totem_flow
+  	@totem_block = @totem_flow.totem_blocks.create()
+  	render json: @totem_block
   end
   
   def show
   	@totem_flow = TotemFlow.find(params[:totem_flow_id])
   	@totem_block = @totem_flow.totem_blocks.find(params[:id])
   	render json: @totem_block
+  end
+
+  def destroy
+    @totem_block = TotemBlock.find(params[:id])
+    @totem_block.destroy()
+    render json: "delete success"
   end
 end

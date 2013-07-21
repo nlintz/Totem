@@ -6,7 +6,9 @@
                 <div class="totem-view-container">
                     <ul ng-model="items" ui-sortable>
                         <li ng-repeat="totemBlock in totemBlocks">
-                            <div class="totem-block" ng-class="blockType" ng-click="setSelectedBlock(totemBlock)">
+                            <div class="totem-block monkey-block" ng-class="{selectedBlock: $index==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, $index)">
+                                <p>index: {{$index}}</p>
+                                <p>selected-block: {{selectedBlockIndex}}</p>
                             </div>
                         </li>
                     </ul>
