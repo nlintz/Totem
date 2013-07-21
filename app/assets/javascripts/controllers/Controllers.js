@@ -44,10 +44,14 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
     }
 
     $('#editTitleInput').blur(function(){
-        $scope.$apply($scope.editingBlockTitle = false);
+        $scope.editingBlockTitle = false
+        $scope.totemBlocks[$scope.selectedBlockIndex].title = $scope.totemBlocks[$scope.selectedBlockIndex].title ? $scope.totemBlocks[$scope.selectedBlockIndex].title : $scope.defaultTitle
+        $scope.$apply()
     })
     $('#editContentInput').blur(function(){
-        $scope.$apply($scope.editingBlockContent = false);
+        $scope.editingBlockContent = false
+        $scope.totemBlocks[$scope.selectedBlockIndex].content = $scope.totemBlocks[$scope.selectedBlockIndex].content ? $scope.totemBlocks[$scope.selectedBlockIndex].content : $scope.defaultContent
+        $scope.$apply()
     })
 
     $scope.setSelectedBlock = function(totemBlock, index) {
