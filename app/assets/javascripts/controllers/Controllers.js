@@ -16,27 +16,29 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
             $scope.totemBlocks[i].title = $scope.totemBlocks[i].title ? $scope.totemBlocks[i].title : "Add Title"
             $scope.totemBlocks[i].content = $scope.totemBlocks[i].content ? $scope.totemBlocks[i].content : "Add Text"
         }
+        if ($scope.totemBlocks.length > 0){
+        $scope.selectedBlockIndex = 0
+        // $scope.showImageUrl = $scope.totemBlocks[0].block_image_url;
+        }
     })
-    $scope.selectedBlockIndex = 1
     
-    $scope.updatePositions = function() {
-         // console.log()/
-        var uiArray = $("#TodoList").sortable('toArray');
-        // delta = (startPosition - endPosition)/Math.abs(startPosition - endPosition)
-        // lowerBound = Math.min(startPosition, endPosition)
-        // upperBound = Math.max(startPosition, endPosition)
-        // // $scope.selectedBlockIndex = endPosition
-        // angular.forEach($scope.totemBlocks, function(totemBlock){
-        //     if (totemBlock.position <= upperBound && totemBlock.position >= lowerBound && totemBlock.position != startPosition){
-        //         totemBlock.position += delta;
-        //         }
-        //     else if(totemBlock.position == startPosition){
-        //         totemBlock.position = endPosition
-        //         }
-        //     });
-    }
+    
+    // $scope.sortableTotemBlocks = {
+    //     update: function(e, ui){
+    //         // var newPositions = $('#totemBlocksList').sortable('toArray');
+    //         // // console.log($('#totemBlocksList').sortable('toArray'))
+    //         // angular.forEach($scope.totemBlocks, function(totemBlock){
+    //         //     console.log(totemBlock.position)
+    //         //     totemBlock.position = parseInt(newPositions[totemBlock.position])
+    //         //     console.log(totemBlock.position)
+    //         // })
+    //         // $scope.showImageUrl = $scope.totemBlock
+    //     }
+    // }
+
     $scope.setSelectedBlock = function(totemBlock, index) {
-        $scope.selectedBlockIndex = index;
+        $scope.selectedBlockIndex = index
+        $scope.showImageUrl = $scope.totemBlocks[$scope.selectedBlockIndex].block_image_url;
     }
     $scope.addBlock = function(){
         console.log($scope.totemBlocks)

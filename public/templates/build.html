@@ -4,11 +4,12 @@
         <div class="row row-full-width">
             <div class="small-12">
                 <div class="totem-view-container">
-                    <ul id="totemBlockList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
-                        <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks | orderBy:position">
+                    <ul id="totemBlocksList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
+                        <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks">
                             <div class="totem-block monkey-block" data-position={{totemBlock.position}} ng-class="{selectedBlock: totemBlock.position==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, totemBlock.position)">
                                 <p>selected block index: {{selectedBlockIndex}}</p>
                                 <p>position: {{totemBlock.position}}</p>
+                                <p>id: {{totemBlock.id}} </p>
                             </div>
                         </li>
                     </ul>
