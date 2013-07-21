@@ -4,9 +4,6 @@ Services.factory('TotemFlows', ['$resource', function($resource){
 	return $resource('/build/totem_flows/:totem_flow_id/', 
 		{ 
 			totem_flow_id: '@totem_flow_id'
-		},
-		{
-			save_totem: {method:'PUT', isArray: true}
 		}
 	);
 }]);

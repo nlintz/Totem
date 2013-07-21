@@ -8,7 +8,7 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
     }
 }]);
 
-Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows', 'TotemBlocks', function($scope, $routeParams, TotemFlows, TotemBlocks) {
+Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'TotemFlows', 'TotemBlocks', function($scope, $routeParams, $http, TotemFlows, TotemBlocks) {
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
@@ -32,6 +32,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
     }
     $scope.endEditTitle = function() {
         $scope.editingBlockTitle = false;
+        editInputCallback('title')
     }
 
     $scope.startEditContent = function(){
@@ -41,26 +42,45 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
 
     $scope.endEditContent = function(){
         $scope.editingBlockContent = false;
+        editInputCallback('content')
     }
 
     $('#editTitleInput').blur(function(){
         $scope.editingBlockTitle = false
-        $scope.totemBlocks[$scope.selectedBlockIndex].title = $scope.totemBlocks[$scope.selectedBlockIndex].title ? $scope.totemBlocks[$scope.selectedBlockIndex].title : $scope.defaultTitle
-        $scope.$apply()
+        editInputCallback('title', true)
     })
     $('#editContentInput').blur(function(){
         $scope.editingBlockContent = false
-        $scope.totemBlocks[$scope.selectedBlockIndex].content = $scope.totemBlocks[$scope.selectedBlockIndex].content ? $scope.totemBlocks[$scope.selectedBlockIndex].content : $scope.defaultContent
-        $scope.$apply()
+        editInputCallback('title', true)
     })
+
+    $scope.saveTotem = function(){
+        editInputCallback();
+    }
+
+    var editInputCallback = function(inputType, apply) {
+        if (inputType == 'title'){
+            $scope.totemBlocks[$scope.selectedBlockIndex].title = $scope.totemBlocks[$scope.selectedBlockIndex].title ? $scope.totemBlocks[$scope.selectedBlockIndex].title : $scope.defaultTitle
+        }
+        if (inputType == 'content'){
+            $scope.totemBlocks[$scope.selectedBlockIndex].content = $scope.totemBlocks[$scope.selectedBlockIndex].content ? $scope.totemBlocks[$scope.selectedBlockIndex].content : $scope.defaultContent
+        }
+        if (apply) {
+            $scope.$apply()
+        }
+        var totemFlowId = $scope.totemFlow.id
+        var totemBlockId = $scope.totemBlocks[$scope.selectedBlockIndex].id
+        var selectedBlock = $scope.totemBlocks[$scope.selectedBlockIndex]
+        $http({
+            method: 'PUT',
+            url:"/build/totem_flows/"+totemFlowId + "/totem_blocks/" + totemBlockId, 
+            data: {"totemBlock": selectedBlock}
+        });
+
+    }
 
     $scope.setSelectedBlock = function(totemBlock, index) {
         $scope.selectedBlockIndex = index
-    }
-
-    $scope.saveTotem = function(){
-        console.log('totem saved')
-        TotemFlows.save_totem({totem_flow_id: $routeParams.totemFlowId})
     }
 
     $scope.addBlock = function(){
