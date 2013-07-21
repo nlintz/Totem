@@ -8,6 +8,7 @@ $pictureIcon: 'attach_picture.gif';
 $sidebar-texture-url: 'sidebar_texture.png';
 $arrow-up-url: 'up_arrow.gif';
 $arrow-down-url: 'arrow_down.gif';
+$save-totem-url: 'save_totem.gif';
 
 .sidebar {
 	background: url(image_path($sidebar-texture-url)) !important;
@@ -49,6 +50,9 @@ $arrow-down-url: 'arrow_down.gif';
 }
 .btn-arrow-down {
 	background-image: url(image_path($arrow-down-url));
+}
+.btn-save-totem {
+	background-image: url(image_path($save-totem-url))
 }
 
 

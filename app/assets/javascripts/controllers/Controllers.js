@@ -12,6 +12,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
+    $scope.editingBlockContent = false;
+    $scope.editingBlockTitle = false;
 
     $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){
@@ -24,9 +26,37 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
         }
     })
 
+    $scope.startEditTitle = function(){
+        $scope.editingBlockTitle = true;
+    }
+    $scope.endEditTitle = function() {
+        $scope.editingBlockTitle = false;
+    }
+
+    $scope.startEditContent = function(){
+        $scope.editingBlockContent = true;
+    }
+
+    $scope.endEditContent = function(){
+        $scope.editingBlockContent = false;
+    }
+
+    $('#editTitleInput').blur(function(){
+        $scope.$apply($scope.editingBlockTitle = false);
+    })
+    $('#editContentInput').blur(function(){
+        $scope.$apply($scope.editingBlockContent = false);
+    })
+
     $scope.setSelectedBlock = function(totemBlock, index) {
         $scope.selectedBlockIndex = index
     }
+
+    $scope.saveTotem = function(){
+        console.log('totem saved')
+        TotemFlows.save_totem({totem_flow_id: $routeParams.totemFlowId})
+    }
+
     $scope.addBlock = function(){
         var newBlock = {
             position: $scope.totemBlocks.length,
@@ -65,14 +95,14 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
         $("#drop-target").html("Drop to upload").css({
             'backgroundColor': "#E0E0E0",
             'border': "1px solid #000"
-        });
-    },
+            });
+        },
     dragLeave: function() {
         $("#drop-target").html("Drop files here").css({
             'backgroundColor': "#F6F6F6",
             'border': "1px dashed #666"
-        });
-    },
+            });
+        },
     onSuccess: function(InkBlob) {
     	// $('#drop-target').hide()
         $("#drop-target").text("Done, see result below");
@@ -84,13 +114,14 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', 'TotemFlows
         $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
         $scope.totemBlocks[$scope.selectedBlockIndex].block_image_url = imgUrl;
         $scope.$apply()
-    },
+        },
     onError: function(type, message) {
         $("#uploadPreview").text('('+type+') '+ message);
-    },
+        },
     onProgress: function(percentage) {
         $("#drop-target").text("Uploading ("+percentage+"%)");
-    }
+        }
 
-	})
+	});
+    
 }]);

@@ -12,6 +12,9 @@ $face-totem-url: 'face_totem.gif';
 	background: url(image_path($build-texture-url)) !important;
 	background-repeat:no-repeat;	
 }
+.content-container textarea {
+	height:20%;
+}
 #drop-target {
 	background-color: #E0E0E0;
     border: 1px solid #000;
@@ -53,6 +56,15 @@ $face-totem-url: 'face_totem.gif';
 	height: 4em;
 	font-size: 1.5em;
 	position:relative;
+	input[type="text"]{
+		margin-bottom: 5%;
+		margin-top:0px;
+		position: absolute;
+		top: 25%;
+		text-align: center;
+		width: 100%;
+
+	}
 	h3 {
 		margin-top:0px;
 		margin-bottom: 0px;
