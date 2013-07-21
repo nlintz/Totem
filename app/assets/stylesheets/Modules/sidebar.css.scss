@@ -6,6 +6,8 @@ $stopIcon: 'access_needed.gif';
 $personIcon: 'see_person.gif';
 $pictureIcon: 'attach_picture.gif';
 $sidebar-texture-url: 'sidebar_texture.png';
+$arrow-up-url: 'up_arrow.gif';
+$arrow-down-url: 'arrow_down.gif';
 
 .sidebar {
 	background: url(image_path($sidebar-texture-url)) !important;
@@ -42,6 +44,13 @@ $sidebar-texture-url: 'sidebar_texture.png';
 .btn-picture {
 	background-image: url(image_path($pictureIcon));
 }
+.btn-arrow-up {
+	background-image: url(image_path($arrow-up-url));
+}
+.btn-arrow-down {
+	background-image: url(image_path($arrow-down-url));
+}
+
 
 
 .sidebar {

@@ -4,11 +4,11 @@
         <div class="row row-full-width">
             <div class="small-12">
                 <div class="totem-view-container">
-                    <ul ng-model="items" ui-sortable>
-                        <li ng-repeat="totemBlock in totemBlocks">
-                            <div class="totem-block monkey-block" ng-class="{selectedBlock: $index==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, $index)">
-                                <p>index: {{$index}}</p>
-                                <p>selected-block: {{selectedBlockIndex}}</p>
+                    <ul id="totemBlockList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
+                        <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks | orderBy:position">
+                            <div class="totem-block monkey-block" data-position={{totemBlock.position}} ng-class="{selectedBlock: totemBlock.position==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, totemBlock.position)">
+                                <p>selected block index: {{selectedBlockIndex}}</p>
+                                <p>position: {{totemBlock.position}}</p>
                             </div>
                         </li>
                     </ul>
@@ -38,7 +38,7 @@
                 <div id="drop-target">
                     Drag Image Here
                 </div>
-                <img id="uploadPreview" ng-show="selectedBlock.block_image_url"ng-src={{selectedBlock.block_image_url}}></img>
+                <img id="uploadPreview" ng-show="totemBlocks[selectedBlockIndex].block_image_url" ng-src={{totemBlocks[selectedBlockIndex].block_image_url}}></img>
     		</div>
     	</div>
 	</div>
