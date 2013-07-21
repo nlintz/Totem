@@ -22,7 +22,7 @@
 			<div class="small-12 pagination-centered">
     			<div class="title-container">
                     <input type="text" id="editTitleInput" ui-keypress="{enter: 'endEditTitle()'}" ng-show="editingBlockTitle" ng-model="totemBlocks[selectedBlockIndex].title">
-                    <h3 ng-bind="totemBlocks[selectedBlockIndex].title" ng-click="startEditTitle()" ng-show="!editingBlockTitle">
+                    <h3 ng-bind="totemBlocks[selectedBlockIndex].title" ng-dblclick="startEditTitle()" ng-show="!editingBlockTitle">
                     </h3>
                 </div>
     		</div>
@@ -31,7 +31,7 @@
 			<div class="small-11 small-offset-1">
                 <div class="content-container">
                     <textarea class="content-input" id="editContentInput" name="Text1" cols="40" rows="5" ui-keypress="{enter: 'endEditContent()'}" ng-show="editingBlockContent" ng-model="totemBlocks[selectedBlockIndex].content" /> 
-        			<p ng-bind="totemBlocks[selectedBlockIndex].content" ng-click="startEditContent()" ng-show="!editingBlockContent">
+        			<p ng-bind="totemBlocks[selectedBlockIndex].content" ng-dblclick="startEditContent()" ng-show="!editingBlockContent">
         			</p>
                 </div>
     		</div>

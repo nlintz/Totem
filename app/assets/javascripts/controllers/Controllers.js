@@ -71,6 +71,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
         var totemFlowId = $scope.totemFlow.id
         var totemBlockId = $scope.totemBlocks[$scope.selectedBlockIndex].id
         var selectedBlock = $scope.totemBlocks[$scope.selectedBlockIndex]
+
         $http({
             method: 'PUT',
             url:"/build/totem_flows/"+totemFlowId + "/totem_blocks/" + totemBlockId, 
@@ -95,6 +96,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
         var totemFlowId = $scope.totemFlow.id
         $.post("/build/totem_flows/"+totemFlowId + "/" + 'createNew', function(data){
             $scope.totemBlocks[$scope.selectedBlockIndex] = data;
+            $scope.totemBlocks[$scope.selectedBlockIndex].title = $scope.defaultTitle;
+            $scope.totemBlocks[$scope.selectedBlockIndex].content = $scope.defaultText;
         });
     }
 
@@ -150,4 +153,11 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
 
 	});
     
+}]);
+
+Controllers.controller('LibraryController', ['$scope', '$routeParams', 'Users', 'TotemFlows', function($scope, $routeParams, Users, TotemFlows){
+    $scope.user = Users.getUser(function(data){
+        var userId = data.id
+        $scope.totemFlows = Users.getUserTotemFlows({user_id:userId})
+    })
 }]);
