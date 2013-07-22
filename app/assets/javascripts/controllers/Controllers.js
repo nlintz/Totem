@@ -140,8 +140,9 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
 		var totemFlowId = $scope.totemFlow.id
 		var totemBlockId = $scope.totemBlocks[$scope.selectedBlockIndex].id
         var imgUrl = InkBlob[0].url;
-        $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
         $scope.totemBlocks[$scope.selectedBlockIndex].block_image_url = imgUrl;
+
+        $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
         $scope.$apply()
         },
     onError: function(type, message) {
@@ -158,6 +159,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
 Controllers.controller('LibraryController', ['$scope', '$routeParams', 'Users', 'TotemFlows', function($scope, $routeParams, Users, TotemFlows){
     $scope.user = Users.getUser(function(data){
         var userId = data.id
-        $scope.totemFlows = Users.getUserTotemFlows({user_id:userId})
+        // $scope.totemFlows = Users.getUserTotemFlows({user_id:userId})
+        $scope.totemFlows = [1,2,3,4,5]
     })
 }]);
