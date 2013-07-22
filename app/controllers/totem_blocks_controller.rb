@@ -1,6 +1,7 @@
 class TotemBlocksController < ApplicationController
   def index
-  	@totem_blocks = TotemBlock.all
+    @totem_flow = TotemFlow.find(params[:totem_flow_id])
+  	@totem_blocks = @totem_flow.totem_blocks
   	render json: @totem_blocks
   end
 

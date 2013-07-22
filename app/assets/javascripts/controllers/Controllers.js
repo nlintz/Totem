@@ -77,6 +77,12 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $scope.saveTotem = function(){
         editInputCallback();
     }
+
+    $scope.trashTotem = function(){
+        TotemFlows.delete({totem_flow_id: $scope.totemFlow.id})
+        $location.path('/library/');
+    }
+
     $scope.goToLibraryView = function(){
         $location.path('/library/')
     }
@@ -141,6 +147,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
             TotemBlocks.delete({totem_flow_id: $routeParams.totemFlowId, totem_block_id: deleteBlock.id})
         }
     }
+
     $scope.nextBlock = function() {
         $scope.selectedBlockIndex = Math.min($scope.totemBlocks.length-1, $scope.selectedBlockIndex+1);
     }
@@ -196,8 +203,16 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$routeParam
         var totemFlowid = totemFlow.id;
         $location.path('/build/'+totemFlowid)
     }
-}]);
+    $scope.createNewTotemFlow = function() {
+        var newTotemFlow = {}
+        $scope.totemFlows.push(newTotemFlow)
+        
+        var userId = $scope.user.id
+        $.post("/users/"+userId + "/" + 'createNewTotemFlow', function(data){
+            $scope.totemFlows[$scope.totemFlows.length - 1] = data;
+            $scope.$apply()
+        });
+        
+    }
 
-Controllers.controller('NavigationController', ['$scope', '$location', function($scope, $location){
-    console.log('working')
-}])
+}]);

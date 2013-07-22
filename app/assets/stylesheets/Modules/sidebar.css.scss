@@ -9,6 +9,7 @@ $sidebar-texture-url: 'sidebar_texture.png';
 $arrow-up-url: 'up_arrow.gif';
 $arrow-down-url: 'arrow_down.gif';
 $save-totem-url: 'save_totem.gif';
+$trash-totem-url: 'trash_icon.gif';
 
 .sidebar {
 	background: url(image_path($sidebar-texture-url)) !important;
@@ -52,7 +53,10 @@ $save-totem-url: 'save_totem.gif';
 	background-image: url(image_path($arrow-down-url));
 }
 .btn-save-totem {
-	background-image: url(image_path($save-totem-url))
+	background-image: url(image_path($save-totem-url));
+}
+.btn-trash-totem {
+	background-image: url(image_path($trash-totem-url));
 }
 
 

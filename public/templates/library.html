@@ -1,6 +1,6 @@
 <div class="row content">
 	<ng-include src=" '/partials/navigation.html' "></ng-include>
-	<div class="small-12 columns full-height">
+	<div class="small-12 columns full-height overflow-container">
 		<div class="row row-full-width">
 			<div class="small-5 columns">
 				<div class="row library-filter-container">
@@ -16,12 +16,17 @@
 		<div class="row row-full-width full-height">
 			<div class="small-1 columns full-height">
 				<div class="">
-					go left
+					<!-- go left -->
 				</div>
 			</div>
-			<div class="small-10 columns full-height">
+			<div class="small-10 columns full-height" >
 				<div class="center-container full-height"> 
-					<ul class="small-block-grid-4 full-height">
+					<ul class="small-block-grid-4 full-height pagination-centered">
+						<li class="totem-preview-container">
+							<div class="totem-preview" ng-click="createNewTotemFlow()">
+								<h3 class="">Click to Create New Totem</h3>
+							</div>
+						</li>
 						<li class="totem-preview-container" ng-repeat="totemFlow in totemFlows">
 							<div class="totem-preview" ng-click="viewTotemFlow(totemFlow)">
 								<h3 class="totem-name">{{totemFlow.name}}</h3>
@@ -33,7 +38,7 @@
 			</div>
 			<div class="small-1 columns full-height">
 				<div class="">
-					go right
+					<!-- go right -->
 				</div>
 			</div>
 		</div>

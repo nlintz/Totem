@@ -8,6 +8,26 @@ $add-totem-url: 'add_totem_shadow.gif';
 // .logo-nav {
 // 	background: url(image_path($background-texture-url)) !important;
 // }
+a.btn-right-nav:hover {
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+}
+a.logout {
+	position:relative;
+	top: 20%;
+}
+a.settings {
+	position: relative;
+	top: 20%;
+}
+a.new-totem {
+	position: relative;
+	top: 10%;
+}
+li.right-controls:hover {
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+}
 .left-nav {
 	padding-left: 2em;
 }

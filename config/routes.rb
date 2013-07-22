@@ -12,7 +12,9 @@ Totem::Application.routes.draw do
   scope '/users' do
     match '/getCurrentUser' => 'users#getCurrentUser'
     match '/getCurrentUser/:id' => 'users#getCurrentUserTotemFlows'
+    match ':id/createNewTotemFlow' => 'users#createNewTotemFlow'
   end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   ActiveAdmin.routes(self)
