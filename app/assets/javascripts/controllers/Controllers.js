@@ -133,7 +133,6 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
             });
         },
     onSuccess: function(InkBlob) {
-    	// $('#drop-target').hide()
         $("#drop-target").text("Done, see result below");
         $("#uploadPreview").attr('src', InkBlob[0].url)
         $scope.totemBlocks[$scope.selectedBlockIndex]
@@ -156,10 +155,16 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
     
 }]);
 
-Controllers.controller('LibraryController', ['$scope', '$routeParams', 'Users', 'TotemFlows', function($scope, $routeParams, Users, TotemFlows){
+Controllers.controller('LibraryController', ['$scope', '$location', '$routeParams', 'Users', 'TotemFlows', function($scope, $location, $routeParams, Users, TotemFlows){
+    $scope.totemFlows = []
     $scope.user = Users.getUser(function(data){
         var userId = data.id
-        // $scope.totemFlows = Users.getUserTotemFlows({user_id:userId})
-        $scope.totemFlows = [1,2,3,4,5]
-    })
+        $scope.totemFlows = Users.getUserTotemFlows({user_id:userId}, function(fucks){
+                console.log(fucks)
+        });
+    });
+    $scope.viewTotemFlow = function(totemFlow){
+        var totemFlowid = totemFlow.id;
+        $location.path('/build/'+totemFlowid)
+    }
 }]);

@@ -21,8 +21,11 @@
 			<div class="small-10 columns full-height">
 				<div class="center-container full-height"> 
 					<ul class="small-block-grid-4 full-height">
-						<li class="totem-preview-container" ng-repeat="totemBlock in totemFlows">
-							<div class="totem-preview"></div>
+						<li class="totem-preview-container" ng-repeat="totemFlow in totemFlows">
+							<div class="totem-preview" ng-click="viewTotemFlow(totemFlow)">
+								<h3 class="totem-name">{{totemFlow.name}}</h3>
+								<p class="totem-description">{{totemFlow.description}}</p>
+							</div>
 						</li>
 					</ul>
 				</div>

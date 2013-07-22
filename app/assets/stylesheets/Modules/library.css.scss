@@ -19,3 +19,18 @@
 	height: 100%;
 
 }
+
+.totem-name {
+	min-height: 1em;
+	position: relative;
+	height: 2em;
+	text-align: center;
+	padding-top: 2%;
+	border-bottom: 1px solid black;
+}
+
+.totem-description {
+	margin-top: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
