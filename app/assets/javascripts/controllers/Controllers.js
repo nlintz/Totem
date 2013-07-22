@@ -12,8 +12,10 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
+    $scope.defaultFlowName = "Name This Totem"
     $scope.editingBlockContent = false;
     $scope.editingBlockTitle = false;
+    $scope.editingFlowName = false;
 
     $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){
@@ -29,6 +31,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
 
     $scope.startEditTitle = function(){
         $scope.editingBlockContent = false;
+        $scope.editingFlowName = false;
         $scope.editingBlockTitle = true;
     }
     $scope.endEditTitle = function() {
@@ -38,12 +41,23 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
 
     $scope.startEditContent = function(){
         $scope.editingBlockTitle = false;
+        $scope.editingFlowName = false;
         $scope.editingBlockContent = true;
     }
 
     $scope.endEditContent = function(){
         $scope.editingBlockContent = false;
         editInputCallback('content')
+    }
+
+    $scope.startEditFlowName = function(){
+        $scope.editingBlockTitle = false;
+        $scope.editingFlowName = true;
+        $scope.editingBlockContent = false;
+    }
+    $scope.endEditFlowName = function(){
+        $scope.editingFlowName = false;
+        editInputCallback('flowTitle')
     }
 
     $('#editTitleInput').blur(function(){
@@ -54,6 +68,11 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingBlockContent = false
         editInputCallback('title', true)
     })
+    $('#editFlowNameInput').blur(function(){
+        $scope.editingFlowName = false
+        editInputCallback('flowName', true)
+    })
+
 
     $scope.saveTotem = function(){
         editInputCallback();
@@ -68,18 +87,27 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         if (inputType == 'content'){
             $scope.totemBlocks[$scope.selectedBlockIndex].content = $scope.totemBlocks[$scope.selectedBlockIndex].content ? $scope.totemBlocks[$scope.selectedBlockIndex].content : $scope.defaultContent
         }
+        if (inputTpe = 'flowName'){
+            $scope.totemFlow.name = $scope.totemFlow.name ? $scope.totemFlow.name : $scope.defaultFlowName
+        }
         if (apply) {
             $scope.$apply()
         }
         var totemFlowId = $scope.totemFlow.id
         var totemBlockId = $scope.totemBlocks[$scope.selectedBlockIndex].id
         var selectedBlock = $scope.totemBlocks[$scope.selectedBlockIndex]
+        var totemFlow = $scope.totemFlow
 
         $http({
             method: 'PUT',
             url:"/build/totem_flows/"+totemFlowId + "/totem_blocks/" + totemBlockId, 
             data: {"totemBlock": selectedBlock}
         });
+        $http({
+            method: 'PUT',
+            url:"/build/totem_flows/" + totemFlowId,
+            data: {"totemFlow": totemFlow}
+        })
 
     }
 

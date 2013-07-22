@@ -11,7 +11,7 @@
 #
 
 class TotemFlow < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :description, :name, :created_at, :updated_at, :user_id
   has_many :totem_blocks
   belongs_to :user
 end

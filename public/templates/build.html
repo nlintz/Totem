@@ -6,7 +6,10 @@
                 <div class="totem-view-container">
                     <div class="totem-title row row-full-width">
                         <div class="small-12 pagination-centered">
-                            <h2 ng-show="totemFlow.name" ng-bind="totemFlow.name"></h2>
+                            <div class="title-container">
+                                <input type="text" id="editFlowNameInput" ng-show="editingFlowName" ng-model="totemFlow.name"ui-keypress="{enter: 'endEditFlowName()'}" >
+                                <h3 ng-show="!editingFlowName" ng-bind="totemFlow.name" ng-dblclick="startEditFlowName()"></h3>
+                            </div>
                         </div>
                     </div>
                     <ul id="totemBlocksList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">

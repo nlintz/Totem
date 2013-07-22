@@ -52,6 +52,21 @@ $face-totem-url: 'face_totem.gif';
 .selectedBlock {
 	border: 1px red solid;
 }
+.totem-title {
+	input[type="text"]{
+		margin-bottom: 5%;
+		margin-top:0px;
+		position: absolute;
+		top: 25%;
+		text-align: center;
+		width: 100%;
+		height: 2em;
+		font-size: 1.5em;
+		position:relative;
+
+
+	}
+}
 .title-container {
 	height: 4em;
 	font-size: 1.5em;
@@ -83,9 +98,6 @@ $face-totem-url: 'face_totem.gif';
 	background-position: 50% 50%;
 }
 
-.totem-view-container {
-	// padding-top:10%;
-}
 .totem-view-container li {
 	display:inline-block;
 	height:167px;
