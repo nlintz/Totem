@@ -11,7 +11,7 @@ class TotemFlowsController < ApplicationController
 
 	def destroy
 		@totem_flow = TotemFlow.find(params[:id])
-		@totem_block.destroy()
+		@totem_flow.destroy()
     	render json: "delete success"
 	end
 
