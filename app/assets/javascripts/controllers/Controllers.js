@@ -8,7 +8,7 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
     }
 }]);
 
-Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'TotemFlows', 'TotemBlocks', function($scope, $routeParams, $http, TotemFlows, TotemBlocks) {
+Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users) {
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
@@ -24,7 +24,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
         if ($scope.totemBlocks.length > 0){
         $scope.selectedBlockIndex = 0
         }
-    })
+    });
+    $scope.user = Users.getUser();
 
     $scope.startEditTitle = function(){
         $scope.editingBlockContent = false;
@@ -57,7 +58,9 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', 'T
     $scope.saveTotem = function(){
         editInputCallback();
     }
-
+    $scope.goToLibraryView = function(){
+        $location.path('/library/')
+    }
     var editInputCallback = function(inputType, apply) {
         if (inputType == 'title'){
             $scope.totemBlocks[$scope.selectedBlockIndex].title = $scope.totemBlocks[$scope.selectedBlockIndex].title ? $scope.totemBlocks[$scope.selectedBlockIndex].title : $scope.defaultTitle
@@ -159,12 +162,14 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$routeParam
     $scope.totemFlows = []
     $scope.user = Users.getUser(function(data){
         var userId = data.id
-        $scope.totemFlows = Users.getUserTotemFlows({user_id:userId}, function(fucks){
-                console.log(fucks)
-        });
+        $scope.totemFlows = Users.getUserTotemFlows({user_id:userId});
     });
     $scope.viewTotemFlow = function(totemFlow){
         var totemFlowid = totemFlow.id;
         $location.path('/build/'+totemFlowid)
     }
 }]);
+
+Controllers.controller('NavigationController', ['$scope', '$location', function($scope, $location){
+    console.log('working')
+}])

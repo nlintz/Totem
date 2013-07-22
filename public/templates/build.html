@@ -1,9 +1,14 @@
-<ng-include src=" '/partials/navigation.html' "></ng-include>
 <div class="row content">
+    <ng-include src=" '/partials/navigation.html' "></ng-include>
 	<div class="small-4 columns build-background overflow-container">
         <div class="row row-full-width">
             <div class="small-12">
                 <div class="totem-view-container">
+                    <div class="totem-title row row-full-width">
+                        <div class="small-12 pagination-centered">
+                            <h2 ng-show="totemFlow.name" ng-bind="totemFlow.name"></h2>
+                        </div>
+                    </div>
                     <ul id="totemBlocksList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
                         <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks">
                             <div class="totem-block monkey-block" data-position={{totemBlock.position}} ng-class="{selectedBlock: $index==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, $index)">
