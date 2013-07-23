@@ -13,11 +13,12 @@
                         </div>
                     </div>
                     <ul id="totemBlocksList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
-                        <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks">
-                            <div class="totem-block monkey-block" data-position={{totemBlock.position}} ng-class="{selectedBlock: $index==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, $index)">
+                        <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks" ng-animate=" 'animate' ">
+                            <div class="totem-block" data-position={{totemBlock.position}} ng-class="{'selectedBlock': $index==selectedBlockIndex, 'monkey-block':totemBlock.totem_type == 'monkey', 'face-block':totemBlock.totem_type == 'face', 'bear-block':totemBlock.totem_type == 'bear'}" ng-click="setSelectedBlock(totemBlock, $index)">
 <!--                                 <p>selected block index: {{selectedBlockIndex}}</p>
                                 <p>position: {{totemBlock.position}}</p>
                                 <p>id: {{totemBlock.id}} </p>
+ 
  -->                            </div>
                         </li>
                     </ul>

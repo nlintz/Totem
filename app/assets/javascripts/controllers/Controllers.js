@@ -144,6 +144,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
             $scope.totemBlocks[$scope.selectedBlockIndex] = data;
             $scope.totemBlocks[$scope.selectedBlockIndex].title = $scope.defaultTitle;
             $scope.totemBlocks[$scope.selectedBlockIndex].content = $scope.defaultText;
+            $scope.$apply();
         });
     }
 
