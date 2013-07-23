@@ -27,7 +27,7 @@ Services.factory('Users', ['$resource', function($resource){
 	});
 }])
 
-Services.factory('Signout', function(){
+Services.factory('Signout', ['$http', function($http){
 	return {
 	    signoutUser: function(){
         $http({
@@ -35,7 +35,6 @@ Services.factory('Signout', function(){
             url:"/users/sign_out"
         }).
 	      success(function(data, status, headers, config) {
-	      	console.log('cash out')
 	        document.location.reload(true);
 	      }).
 	      error(function(data, status, headers, config) {
@@ -43,4 +42,4 @@ Services.factory('Signout', function(){
 	      });
 	    }
 	}
-});
+}]);
