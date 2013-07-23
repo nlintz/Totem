@@ -4633,7 +4633,7 @@ a.th {
     .f-dropdown li:hover, .f-dropdown li:focus {
       background: #eeeeee; }
     .f-dropdown li a {
-      display: block;
+      display: block; 
       padding: 0.3125em 0.625em;
       color: #555555; }
   .f-dropdown.content {
