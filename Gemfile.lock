@@ -181,6 +181,7 @@ DEPENDENCIES
   angular-ui-rails
   annotate
   bourbon
+  bundler
   coffee-rails (~> 3.2.1)
   compass-rails
   devise
