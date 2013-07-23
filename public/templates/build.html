@@ -15,10 +15,10 @@
                     <ul id="totemBlocksList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
                         <li id={{totemBlock.position}} ng-repeat="totemBlock in totemBlocks">
                             <div class="totem-block monkey-block" data-position={{totemBlock.position}} ng-class="{selectedBlock: $index==selectedBlockIndex}" ng-click="setSelectedBlock(totemBlock, $index)">
-                                <p>selected block index: {{selectedBlockIndex}}</p>
+<!--                                 <p>selected block index: {{selectedBlockIndex}}</p>
                                 <p>position: {{totemBlock.position}}</p>
                                 <p>id: {{totemBlock.id}} </p>
-                            </div>
+ -->                            </div>
                         </li>
                     </ul>
                 </div>
@@ -46,7 +46,12 @@
     	</div>
     	<div class="row">
 			<div class="small-12 pagination-centered">
-                <div id="drop-target">
+                <h2 ng-show=" !totemBlocks.length" ng-click="addBlock()">
+                    <div data-alert class="alert-box">
+                        Click Me To Get Started
+                    </div>
+                </h2>
+                <div id="drop-target" ng-show='totemBlocks.length'>
                     <div>Drop Pics Here</div>
                 </div>
                 <img id="uploadPreview" ng-show="totemBlocks[selectedBlockIndex].block_image_url" ng-src={{totemBlocks[selectedBlockIndex].block_image_url}}></img>

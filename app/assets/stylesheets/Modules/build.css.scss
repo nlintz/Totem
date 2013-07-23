@@ -7,6 +7,7 @@ $face-totem-url: 'face_totem.gif';
 
 .bear-block {
 	background: url(image_path($bear-totem-url));
+	background-size: 167px 294px;
 }
 .build-background {
 	background: url(image_path($build-texture-url)) !important;
