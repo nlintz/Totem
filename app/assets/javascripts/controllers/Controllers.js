@@ -167,7 +167,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     }
 
     $scope.search = function(searchQuery){
-        $location.path('/library')
+        $location.path('/library');
         $scope.searchQuery = searchQuery;
     }
 
