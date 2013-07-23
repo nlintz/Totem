@@ -12,6 +12,6 @@
 #
 
 class TotemBlock < ActiveRecord::Base
-  attr_accessible :content, :position, :title, :block_image_url, :created_at, :id, :totem_flow_id, :updated_at
+  attr_accessible :content, :position, :title, :block_image_url, :created_at, :id, :totem_flow_id, :updated_at, :totem_type
   belongs_to :totem_flow
 end

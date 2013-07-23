@@ -18,6 +18,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $scope.editingFlowName = false;
     $scope.sendReady = false;
     $scope.sendTotemEmail = "";
+    $scope.getStartedMessage = "Click Me To Get Started";
 
     $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){

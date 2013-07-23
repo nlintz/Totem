@@ -48,8 +48,7 @@
     	<div class="row">
 			<div class="small-12 pagination-centered">
                 <h2 ng-show=" !totemBlocks.length" ng-click="addBlock()">
-                    <div data-alert class="alert-box">
-                        Click Me To Get Started
+                    <div data-alert class="alert-box" ng-bind="getStartedMessage">
                     </div>
                 </h2>
                 <div id="drop-target" ng-show='totemBlocks.length'>
