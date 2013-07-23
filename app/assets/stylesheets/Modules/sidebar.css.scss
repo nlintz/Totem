@@ -10,6 +10,7 @@ $arrow-up-url: 'up_arrow.gif';
 $arrow-down-url: 'arrow_down.gif';
 $save-totem-url: 'save_totem.gif';
 $trash-totem-url: 'trash_icon.gif';
+$send-totem-url: 'export.gif';
 
 .sidebar {
 	background: url(image_path($sidebar-texture-url)) !important;
@@ -57,6 +58,9 @@ $trash-totem-url: 'trash_icon.gif';
 }
 .btn-trash-totem {
 	background-image: url(image_path($trash-totem-url));
+}
+.btn-send-totem {
+	background-image: url(image_path($send-totem-url));
 }
 
 

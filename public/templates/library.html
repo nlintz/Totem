@@ -27,7 +27,7 @@
 								<h3 class="">Click to Create New Totem</h3>
 							</div>
 						</li>
-						<li class="totem-preview-container" ng-repeat="totemFlow in totemFlows">
+						<li class="totem-preview-container" ng-repeat="totemFlow in totemFlows | filter:searchQuery">
 							<div class="totem-preview" ng-click="viewTotemFlow(totemFlow)">
 								<h3 class="totem-name">{{totemFlow.name}}</h3>
 								<p class="totem-description">{{totemFlow.description}}</p>

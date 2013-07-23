@@ -7,15 +7,11 @@
           </img>
       </li>
     </ul>
-    <ul class="left main-nav left-nav">
-      <!-- Build has the same create totem icon -->
-      <!-- Each brings to a lib view. explore maps to view but with more options -->
-      
-      <li class="name">
-        <input alt="search" placeholder="Search" type="text"><span class="search-btn-container">
-        <a class="search-button"></a>
-    </span>
-  </input>
+    <ul class="left main-nav left-nav">      
+      <li class="name search-container">
+        <input alt="search" placeholder="Search" type="text" ng-model="searchQuery">
+        <span class="search-btn-container" ng-click="search(searchQuery)">
+        </span>
       </li>
     </ul>
     <ul class="right main-nav">

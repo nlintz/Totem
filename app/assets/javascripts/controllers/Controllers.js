@@ -59,6 +59,9 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingFlowName = false;
         editInputCallback('flowTitle')
     }
+    $scope.sendTotem = function(){
+        
+    }
 
     $('#editTitleInput').blur(function(){
         $scope.editingBlockTitle = false
@@ -214,5 +217,11 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$routeParam
         });
         
     }
+
+    $scope.searchQuery = ""
+    $scope.search = function(searchQuery){
+        $scope.searchQuery = searchQuery;
+    }
+
 
 }]);

@@ -114,23 +114,22 @@ ul.main-nav .right-controls #logout {
 }
 
 .search-btn-container {
-	height: 76px;
-	width: 77px;
-	display:inline-block;
+	background-position: 95% 7%;
 	background-image: url(image_path($magnifying-glass-url));
-	background-size: 40% auto;
+	background-size: 25% auto;
 	background-repeat: no-repeat;
+	cursor: pointer;
+	display:inline-block;
+	height: 76px;
 	margin-top: .5em;
-	background-position: 0% 0%;
-	margin-left: -1em;
 	position:absolute;
 	right: 0%;
 	top: 0%;
+	width: 22%;
 }
 
-.search-btn {
-	position:absolute;
-	right: 0%;
+.search-container {
+	width: 20em;
 }
 
 .top-bar {
