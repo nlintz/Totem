@@ -16,6 +16,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $scope.editingBlockContent = false;
     $scope.editingBlockTitle = false;
     $scope.editingFlowName = false;
+    $scope.sendReady = false;
+    $scope.sendTotemEmail = "";
 
     $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){
@@ -59,8 +61,12 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingFlowName = false;
         editInputCallback('flowTitle')
     }
-    $scope.sendTotem = function(){
-        
+    $scope.openSendTotemContainer = function(){
+        $scope.sendReady = true;
+    }
+    
+    $scope.sendTotem = function(sendTotemEmail) {
+        console.log(sendTotemEmail);
     }
 
     $('#editTitleInput').blur(function(){
@@ -158,6 +164,11 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.selectedBlockIndex = Math.max(0, $scope.selectedBlockIndex-1);
     }
 
+    $scope.search = function(searchQuery){
+        $location.path('/library')
+        $scope.searchQuery = searchQuery;
+    }
+
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
 	filepicker.makeDropPane($('#drop-target')[0], {
 		    multiple: false,
@@ -196,7 +207,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     
 }]);
 
-Controllers.controller('LibraryController', ['$scope', '$location', '$routeParams', 'Users', 'TotemFlows', function($scope, $location, $routeParams, Users, TotemFlows){
+Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'Users', 'TotemFlows', function($scope, $location, $http, $routeParams, Users, TotemFlows){
     $scope.totemFlows = []
     $scope.user = Users.getUser(function(data){
         var userId = data.id
@@ -223,5 +234,18 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$routeParam
         $scope.searchQuery = searchQuery;
     }
 
+    $scope.signOut = function(){
+        $http({
+            method: 'DELETE',
+            url:"/users/sign_out"
+        }).
+      success(function(data, status, headers, config) {
+        console.log('hi');
+        document.location.reload(true);
+      }).
+      error(function(data, status, headers, config) {
+        console.log('error')
+      });
+    }
 
 }]);

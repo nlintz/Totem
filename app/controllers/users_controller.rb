@@ -16,8 +16,14 @@ class UsersController < ApplicationController
 
 	def createNewTotemFlow
 		@user = current_user
-		@totem_flow = @user.totem_flows.create()
+		@totem_flow = @user.totem_flows.create(name: "Name This Totem")
 		render json: @totem_flow
+	end
+
+	def sendTotem
+		@user = User.where(email: params[:email])
+		@totemFlow = TotemFlow.find(params[:id])
+		@user
 	end
 
 end

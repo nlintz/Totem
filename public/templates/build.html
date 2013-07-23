@@ -39,7 +39,7 @@
 			<div class="small-11 small-offset-1">
                 <div class="content-container">
                     <textarea class="content-input" id="editContentInput" name="Text1" cols="40" rows="5" ui-keypress="{enter: 'endEditContent()'}" ng-show="editingBlockContent" ng-model="totemBlocks[selectedBlockIndex].content" /> 
-        			<p ng-bind="totemBlocks[selectedBlockIndex].content" ng-dblclick="startEditContent()" ng-show="!editingBlockContent">
+        			<p ng-bind-html="totemBlocks[selectedBlockIndex].content | linky" ng-dblclick="startEditContent()" ng-show="!editingBlockContent">
         			</p>
                 </div>
     		</div>

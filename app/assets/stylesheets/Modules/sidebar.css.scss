@@ -61,9 +61,22 @@ $send-totem-url: 'export.gif';
 }
 .btn-send-totem {
 	background-image: url(image_path($send-totem-url));
+
 }
 
+.send-container {
+	$container-width: 500%;
+	margin-left: -100%;
+	height: 100%;
+	width:200% !important;
+	padding-right: 200%;
+	padding: 20% 20% 0% 20%;
+	background: black;
+}
 
+.send-container :hover{
+	opacity: 100%;
+}
 
 .sidebar {
 	padding-left:0 !important;
