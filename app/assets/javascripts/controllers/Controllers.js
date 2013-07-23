@@ -8,7 +8,7 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
     }
 }]);
 
-Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users) {
+Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', 'Signout', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users, Signout) {
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
@@ -31,6 +31,12 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         }
     });
     $scope.user = Users.getUser();
+
+    console.log('hi')
+    
+    $scope.signOut = function(){
+        Signout.signoutUser();
+    }
 
     $scope.startEditTitle = function(){
         $scope.editingBlockContent = false;
@@ -209,7 +215,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     
 }]);
 
-Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'Users', 'TotemFlows', function($scope, $location, $http, $routeParams, Users, TotemFlows){
+Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'Users', 'TotemFlows', 'Signout', function($scope, $location, $http, $routeParams, Users, TotemFlows, Signout){
     $scope.totemFlows = []
     $scope.user = Users.getUser(function(data){
         var userId = data.id
@@ -237,17 +243,7 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$r
     }
 
     $scope.signOut = function(){
-        $http({
-            method: 'DELETE',
-            url:"/users/sign_out"
-        }).
-      success(function(data, status, headers, config) {
-        console.log('hi');
-        document.location.reload(true);
-      }).
-      error(function(data, status, headers, config) {
-        console.log('error')
-      });
+        Signout.signoutUser();
     }
 
 }]);

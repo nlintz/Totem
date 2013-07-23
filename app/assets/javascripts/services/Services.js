@@ -29,8 +29,18 @@ Services.factory('Users', ['$resource', function($resource){
 
 Services.factory('Signout', function(){
 	return {
-		signOut: function(){
-			
-		}
+	    signoutUser: function(){
+        $http({
+            method: 'DELETE',
+            url:"/users/sign_out"
+        }).
+	      success(function(data, status, headers, config) {
+	      	console.log('cash out')
+	        document.location.reload(true);
+	      }).
+	      error(function(data, status, headers, config) {
+	        console.log('error occurred')
+	      });
+	    }
 	}
 });
