@@ -8,7 +8,9 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
     }
 }]);
 
-Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', 'Signout', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users, Signout) {
+Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users) {
+    console.log('hi')
+
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
@@ -32,8 +34,6 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     });
     $scope.user = Users.getUser();
 
-    console.log('hi')
-    
     $scope.signOut = function(){
         Signout.signoutUser();
     }
