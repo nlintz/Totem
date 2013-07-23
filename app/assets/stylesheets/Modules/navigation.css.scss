@@ -17,10 +17,6 @@ a.btn-right-nav {
 	background-repeat: no-repeat !important;
 	background-color: transparent !important;
 }
-a.logout {
-	position:relative;
-	top: 20%;
-}
 a.settings {
 	position: relative;
 	top: 20%;
@@ -97,6 +93,12 @@ ul.main-nav .right-controls {
 	}
 	a.logout {
 		background-image: url(image_path('sign_out_shadow.gif'));
+		position:relative;
+		top: 20%;
+		left: 60%;
+		width: 87px !important;
+		height: 72px !important;
+		background-size: 40% auto;
 	}
 }
 	

@@ -26,3 +26,11 @@ Services.factory('Users', ['$resource', function($resource){
 		getUserTotemFlows: {method:'GET', isArray:true}
 	});
 }])
+
+Services.factory('Signout', function(){
+	return {
+		signOut: function(){
+			
+		}
+	}
+});
