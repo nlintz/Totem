@@ -34,11 +34,13 @@ Services.factory('Signout', ['$http', function($http){
             method: 'DELETE',
             url:"/users/sign_out"
         }).
-	      success(function(data, status, headers, config) {
-	        document.location.reload(true);
+	     success(function(data, status, headers, config) {
+	        location.reload(true);
 	      }).
 	      error(function(data, status, headers, config) {
-	        console.log('error occurred')
+	        console.log('error occurred');
+	        location.reload(true);
+
 	      });
 	    }
 	}

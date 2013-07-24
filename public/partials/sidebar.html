@@ -3,7 +3,7 @@
 		<div class="four columns">
 		<li ng-class="{'send-container': sendReady}" class="sidebar-btn btn btn-send-totem" ng-click="startEditSendEmail(sendTotemEmail)">
 			<div ng-show="editingSendEmail" class="edit-send-email-container">
-				<input type="text" id="sendInput" ui-keypress="{enter: 'sendTotem(sendTotemEmail)'}" ng-model="sendTotemEmail">
+				<input type="text" id="sendInput" ui-keypress="{enter: 'endEditSendEmail(sendTotemEmail)'}" ng-model="sendTotemEmail">
 			</div>
 		</li>
 		<li class="sidebar-btn btn-add-block" ng-click="addBlock()"></li>

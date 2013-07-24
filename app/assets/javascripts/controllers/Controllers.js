@@ -72,7 +72,6 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     
     $scope.startEditSendEmail = function(sendTotemEmail) {
         $scope.editingSendEmail = true;
-        console.log(sendTotemEmail);
     }
     $scope.endEditSendEmail = function(){
         $scope.editingSendEmail = false;
@@ -91,9 +90,11 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingFlowName = false
         editInputCallback('flowName', true)
     })
+
+
     $('#sendInput').blur(function(){
-        $scope.editingSendEmail = false
-        // sendInputCallback()
+        $scope.editingSendEmail = false;
+        $scope.$apply();
     })
 
 

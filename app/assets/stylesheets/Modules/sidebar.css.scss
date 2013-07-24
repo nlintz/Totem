@@ -65,15 +65,17 @@ $send-totem-url: 'export.gif';
 }
 
 .edit-send-email-container {
-	margin-left: -100%;
+	left: -150%;
+	width: 250%;
 	height: 100%;
-	width:200% !important;
 	background-color: black;
 	position:relative;
-	padding: 20% 20% 0% 20%;
+	padding: 20% 20% 20% 20%;
+	transition: width .1s ;
 	input[type="text"]{
 		position: absolute;
-		// top: 30%;
+		width: 90%;
+		left:7%;
 	}
 }
 
