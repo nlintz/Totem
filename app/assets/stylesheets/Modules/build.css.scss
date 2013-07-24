@@ -2,6 +2,7 @@ $build-texture-url: 'build_texture.png';
 $bear-totem-url: 'bear_totem.gif';
 $monkey-totem-url: 'monkey_totem.gif';
 $face-totem-url: 'face_totem.gif';
+$btn-totem-url: 'btn-totem.png';
 
 .big {width: 300px; height: 50px; text-align: center;}
 
@@ -10,9 +11,11 @@ $face-totem-url: 'face_totem.gif';
 	background-size: 167px 294px;
 }
 .build-background {
-	background: url(image_path($build-texture-url)) !important;
+	// background: url(image_path($build-texture-url)) !important;
+	background-color: #91d6f6;
 	background-repeat:no-repeat;	
 }
+
 .content-container textarea {
 	height:20%;
 }
@@ -81,14 +84,6 @@ $face-totem-url: 'face_totem.gif';
 		width: 100%;
 
 	}
-	h3 {
-		margin-top:0px;
-		margin-bottom: 0px;
-		position: absolute;
-		top: 25%;
-		text-align: center;
-		width: 100%;
-	}
 }
 
 .totem-block {
@@ -107,4 +102,8 @@ $face-totem-url: 'face_totem.gif';
 
 .totem-view-container ul {
 	line-height:0;
+}
+
+.totem-preview {
+	padding: 10% 5% 5% 10%;
 }

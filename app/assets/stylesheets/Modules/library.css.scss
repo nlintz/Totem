@@ -1,6 +1,26 @@
+#add-new-block-container {
+	padding: 10% 5% 5% 10%;
+	h3 {
+		font-weight: 200;
+		color: #dbf3fb !important;
+	}
+}
+
 .library-filter-container {
 	height: 5em;
 }
+
+#btn-add-new-block {
+	width: 448px;
+	height: 448px;
+	position: absolute;
+	top: 40%;
+	left: 30%;
+	background-image: url("/assets/btn-totem.png");
+	background-size: 25% 25%;
+	background-repeat: no-repeat;
+}
+
 
 .center-container {
 	position:relative;
@@ -8,16 +28,28 @@
 }
 
 .totem-preview-container {
-	height: 40% !important;
+	height: 50% !important;
 	padding: 1em 1em 1em 1em !important;
 	position: relative;
 }
 
 .totem-preview {
-	border: 1px solid black;
+	background-color: #6dceef;
+	border: 1px solid #5babc3;
 	border-radius: 15px;
 	height: 100%;
+	h3 {
+		font-weight: 100;
+		color: #dbf3fb !important;
+	}
 
+}
+
+.search-container input[type="text"] {
+	background-color: transparent;
+	border: solid 1px #fff;
+	position: relative;
+	top: 25%;
 }
 
 .totem-name {

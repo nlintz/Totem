@@ -1,6 +1,6 @@
 <div class="row">
 	<ul class="nav-bar vertical">
-		<div class="four columns">
+		<div class="four columns sidebar-container">
 		<li ng-class="{'send-container': sendReady}" class="sidebar-btn btn btn-send-totem" ng-click="startEditSendEmail(sendTotemEmail)">
 			<div ng-show="editingSendEmail" class="edit-send-email-container">
 				<input type="text" id="sendInput" ui-keypress="{enter: 'endEditSendEmail(sendTotemEmail)'}" ng-model="sendTotemEmail">

@@ -25,7 +25,9 @@
 					<ul class="small-block-grid-4 full-height pagination-centered">
 						<li class="totem-preview-container">
 							<div id="add-new-block-container" class="totem-preview" ng-click="createNewTotemFlow()">
-								<h3 class="">Click to Create New Totem</h3>
+								<h3>Click to Create New Totem</h3>
+								<div id="btn-add-new-block">
+								</div>
 							</div>
 						</li>
 						<li class="totem-preview-container" ng-animate=" 'totemFlowsAnimation' " ng-repeat="totemFlow in totemFlows | filter:searchQuery">

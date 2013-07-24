@@ -28,12 +28,16 @@ $send-totem-url: 'export.gif';
 	opacity: .5;
 }
 
-
+.sidebar-container {
+	background-color: #6dceef;
+}
 .btn-add-block {
 	background-image: url(image_path($add-block-url));
+	background-size: 60% auto;
 }
 .btn-remove-block {
 	background-image: url(image_path($remove-block-url));
+	background-size: 60% auto;
 }
 .btn-link {
 	background-image: url(image_path($addLinkIcon));

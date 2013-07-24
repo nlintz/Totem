@@ -134,7 +134,7 @@ ul.main-nav .right-controls #logout {
 	margin-top: .5em;
 	position:absolute;
 	right: 0%;
-	top: 0%;
+	top: 5%;
 	width: 22%;
 }
 
@@ -152,8 +152,9 @@ ul.main-nav .right-controls #logout {
 /* SKINS */
 
 .top-bar {
-	background-image: -webkit-linear-gradient(left, #89D1F4, #B4DBF5) !important; 
-	background-image: -moz-linear-gradient(left, #89D1F4, #B4DBF5) !important;
-	background-image: -ms-linear-gradient(left, #89D1F4, #B4DBF5) !important;
-	background-image: -o-linear-gradient(left, #89D1F4, #B4DBF5) !important;
+	background-color: #6dceef !important;
+	// background-image: -webkit-linear-gradient(left, #89D1F4, #B4DBF5) !important; 
+	// background-image: -moz-linear-gradient(left, #89D1F4, #B4DBF5) !important;
+	// background-image: -ms-linear-gradient(left, #89D1F4, #B4DBF5) !important;
+	// background-image: -o-linear-gradient(left, #89D1F4, #B4DBF5) !important;
 }
