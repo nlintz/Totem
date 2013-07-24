@@ -64,13 +64,23 @@ $send-totem-url: 'export.gif';
 
 }
 
-.send-container {
-	$container-width: 500%;
+.edit-send-email-container {
 	margin-left: -100%;
 	height: 100%;
 	width:200% !important;
-	padding-right: 200%;
+	background-color: black;
+	position:relative;
 	padding: 20% 20% 0% 20%;
+	input[type="text"]{
+		position: absolute;
+		// top: 30%;
+	}
+}
+
+.send-container {
+	$container-width: 500%;
+	padding-right: 200%;
+	
 	background: black;
 }
 
@@ -102,4 +112,5 @@ $send-totem-url: 'export.gif';
 	border-bottom:thin solid #89D2F5;
 	height: 5em;
 }
+
 

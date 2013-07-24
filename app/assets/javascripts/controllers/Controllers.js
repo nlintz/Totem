@@ -16,9 +16,9 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $scope.editingBlockContent = false;
     $scope.editingBlockTitle = false;
     $scope.editingFlowName = false;
-    $scope.sendReady = false;
+    $scope.editingSendEmail = false;
     $scope.sendTotemEmail = "";
-    $scope.getStartedMessage = "Click Me To Get Started";
+    $scope.getStartedMessage = "Click Me!";
 
     $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId})
 	$scope.totemBlocks = TotemBlocks.query({totem_flow_id: $routeParams.totemFlowId}, function(data){
@@ -26,8 +26,11 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
             $scope.totemBlocks[i].title = $scope.totemBlocks[i].title ? $scope.totemBlocks[i].title : $scope.defaultTitle
             $scope.totemBlocks[i].content = $scope.totemBlocks[i].content ? $scope.totemBlocks[i].content : $scope.defaultText
         }
-        if ($scope.totemBlocks.length > 0){
+        // if ($scope.totemBlocks.length > 0){
         $scope.selectedBlockIndex = 0
+        // }
+        if ($scope.totemBlocks.length == 0){
+            $scope.addBlock();
         }
     });
     $scope.user = Users.getUser();
@@ -66,13 +69,15 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingFlowName = false;
         editInputCallback('flowTitle')
     }
-    $scope.openSendTotemContainer = function(){
-        $scope.sendReady = true;
-    }
     
-    $scope.sendTotem = function(sendTotemEmail) {
+    $scope.startEditSendEmail = function(sendTotemEmail) {
+        $scope.editingSendEmail = true;
         console.log(sendTotemEmail);
     }
+    $scope.endEditSendEmail = function(){
+        $scope.editingSendEmail = false;
+    }
+
 
     $('#editTitleInput').blur(function(){
         $scope.editingBlockTitle = false
@@ -85,6 +90,10 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $('#editFlowNameInput').blur(function(){
         $scope.editingFlowName = false
         editInputCallback('flowName', true)
+    })
+    $('#sendInput').blur(function(){
+        $scope.editingSendEmail = false
+        // sendInputCallback()
     })
 
 
@@ -131,7 +140,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
 
     }
 
-    $scope.setSelectedBlock = function(totemBlock, index) {
+    $scope.setSelectedBlock = function(index) {
         $scope.selectedBlockIndex = index
     }
 
@@ -160,6 +169,14 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         else {
             var deleteBlock = $scope.totemBlocks.splice($scope.selectedBlockIndex, 1)[0]
             TotemBlocks.delete({totem_flow_id: $routeParams.totemFlowId, totem_block_id: deleteBlock.id})
+            if ($scope.selectedBlockIndex < $scope.totemBlocks.length){
+                console.log('hi')
+                $scope.selectedBlockIndex = $scope.selectedBlockIndex;
+            }
+            else {
+                $scope.selectedBlockIndex = $scope.totemBlocks.length-1
+            }
+            $scope.setSelectedBlock($scope.selectedBlockIndex);
         }
     }
 
@@ -171,8 +188,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     }
 
     $scope.search = function(searchQuery){
-        $location.path('/library');
-        $scope.searchQuery = searchQuery;
+        $location.path("/search/" + searchQuery);
     }
 
 	filepicker.setKey('A4Diahs8GTUutiDyZ8MGPz');
@@ -214,6 +230,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
 }]);
 
 Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'Users', 'TotemFlows', 'Signout', function($scope, $location, $http, $routeParams, Users, TotemFlows, Signout){
+
+    $scope.searchQuery = $routeParams.searchQuery ? $routeParams.searchQuery : "";
     $scope.totemFlows = []
     $scope.user = Users.getUser(function(data){
         var userId = data.id
@@ -235,13 +253,14 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$r
         
     }
 
-    $scope.searchQuery = ""
     $scope.search = function(searchQuery){
-        $scope.searchQuery = searchQuery;
+        $location.path("/search/" + searchQuery);
     }
 
     $scope.signOut = function(){
         Signout.signoutUser();
     }
+
+    $("#add-new-block-container").hide(0).fadeIn(200);
 
 }]);

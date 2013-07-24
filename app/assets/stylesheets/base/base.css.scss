@@ -34,3 +34,11 @@ body {
 	overflow-y: auto;
 	padding-bottom: 3em;
 }
+
+.transparent {
+	opacity: 0 !important;
+}
+
+.transparent-text {
+	color: transparent;
+}
