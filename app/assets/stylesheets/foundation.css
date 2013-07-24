@@ -1505,7 +1505,8 @@ label {
   /* Styles for required inputs */ }
   label.right {
     float: none;
-    text-align: right; }
+    text-align: right; 
+    color: #fff; }
   label.inline {
     margin: 0 0 1em 0;
     padding: 0.625em 0; }

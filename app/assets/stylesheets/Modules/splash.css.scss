@@ -64,7 +64,7 @@ $header-height: 10em;
 
 /* SKIN */
 $background-texture-url: 'background.png';
-$btn-totem-url: 'btn-totem.png';
+$btn-totem-url: 'splash.gif';
 
 //TODO add media queries for images
 .btn-totem {
@@ -75,10 +75,11 @@ $btn-totem-url: 'btn-totem.png';
 }
 
 .header {
-	background-image: -webkit-linear-gradient(top, #89D2F5, #B4DBF5); 
-	background-image: -moz-linear-gradient(top, #89D2F5, #B4DBF5);
-	background-image: -ms-linear-gradient(top, #89D2F5, #B4DBF5);
-	background-image: -o-linear-gradient(top, #89D2F5, #B4DBF5);
+	// background-image: -webkit-linear-gradient(top, #89D2F5, #B4DBF5); 
+	// background-image: -moz-linear-gradient(top, #89D2F5, #B4DBF5);
+	// background-image: -ms-linear-gradient(top, #89D2F5, #B4DBF5);
+	// background-image: -o-linear-gradient(top, #89D2F5, #B4DBF5);
+	background: #6eceec;
 }
 
 .header h1 {
@@ -90,7 +91,7 @@ $btn-totem-url: 'btn-totem.png';
 }
 
 .page-container {
-	background: url(image_path($background-texture-url));
+	background: #91d4f4;
 }
 
 /* Animation */

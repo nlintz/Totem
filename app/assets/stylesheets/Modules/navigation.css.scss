@@ -3,6 +3,7 @@ $background-texture-url: 'background.png';
 $totem-logo-url: 'images/totem_logo.gif';
 $add-totem-url: 'add_totem_shadow.gif';
 $magnifying-glass-url: 'magnifying_glass.gif';
+$signout-btn-url: 'sign_out.gif';
 
 /* STRUCTURE */
 
@@ -92,7 +93,7 @@ ul.main-nav .right-controls {
 		background-size: 25px 25px;
 	}
 	a.logout {
-		background-image: url(image_path('sign_out_shadow.gif'));
+		background-image: url(image_path($signout-btn-url));
 		position:relative;
 		top: 20%;
 		left: 60%;
