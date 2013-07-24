@@ -197,14 +197,12 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
 		    multiple: false,
     dragEnter: function() {
         $("#drop-target").html("Drop to upload").css({
-            'backgroundColor': "#E0E0E0",
-            'border': "1px solid #000"
+            // 'backgroundColor': "#E0E0E0",
+            // 'border': "1px solid #000"
             });
         },
     dragLeave: function() {
         $("#drop-target").html("Drop files here").css({
-            'backgroundColor': "#F6F6F6",
-            'border': "1px dashed #666"
             });
         },
     onSuccess: function(InkBlob) {

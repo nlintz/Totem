@@ -68,6 +68,8 @@ $send-totem-url: 'export.gif';
 
 }
 
+
+
 .edit-send-email-container {
 	left: -150%;
 	width: 250%;
@@ -119,4 +121,13 @@ $send-totem-url: 'export.gif';
 	height: 5em;
 }
 
-
+.totem-progress {
+	text-align: center;
+	// padding-top: 25%;
+	h2 {
+		color: #f3f3f4;
+		font-weight: 200;		
+	}
+	// font-size: 3em;
+	font-weight: 300;
+}

@@ -19,11 +19,26 @@ $btn-totem-url: 'btn-totem.png';
 .content-container textarea {
 	height:20%;
 }
-#drop-target {
-	background-color: #E0E0E0;
-    border: 1px solid #000;
 
-	height: 5em;
+.content-container p {
+		color: #f3f3f4;
+		font-weight: 100;
+		font-size: 1.2em;
+		text-align: justify;
+	}
+.drop-container {
+	padding: 2% 4% 0% 4%;
+}
+#drop-target {
+	background-color: transparent;
+    border: 2px dashed #f3f3f4;
+    border-radius: 35px;
+	height: 11em;
+	padding-top: 5%;
+	h1 {
+		font-weight: 100;
+		color: #f3f3f4;
+	}
 }
 .face-block {
 	background: url(image_path($face-totem-url));
@@ -54,8 +69,16 @@ $btn-totem-url: 'btn-totem.png';
 	background-size: 167px 294px;
 }
 .selectedBlock {
-	border: 1px red solid;
 }
+.block-container {
+	height: 100%;
+}
+.block-container.selected-block-container {
+	border: 3px solid #6dceef;
+	border-radius: 15px;
+
+}
+
 .totem-title {
 	input[type="text"]{
 		margin-bottom: 5%;
@@ -82,7 +105,10 @@ $btn-totem-url: 'btn-totem.png';
 		top: 25%;
 		text-align: center;
 		width: 100%;
-
+	}
+	h3 {
+		color: white;
+		font-weight: 100;
 	}
 }
 
@@ -106,4 +132,8 @@ $btn-totem-url: 'btn-totem.png';
 
 .totem-preview {
 	padding: 10% 5% 5% 10%;
+}
+
+#uploadPreview {
+	margin-bottom: 5%;
 }

@@ -14,12 +14,10 @@
                     </div>
                     <ul id="totemBlocksList" ng-model="totemBlocks" ui-sortable="sortableTotemBlocks">
                         <li id={{totemBlock.position}} ng-animate="'animate'" ng-repeat="totemBlock in totemBlocks" ng-animate=" 'animate' ">
-                            <div class="totem-block" data-position={{totemBlock.position}} ng-class="{'selectedBlock': $index==selectedBlockIndex, 'monkey-block':totemBlock.totem_type == 'monkey', 'face-block':totemBlock.totem_type == 'face', 'bear-block':totemBlock.totem_type == 'bear'}" ng-click="setSelectedBlock($index)">
-<!--                                 <p>selected block index: {{selectedBlockIndex}}</p>
-                                <p>position: {{totemBlock.position}}</p>
-                                <p>id: {{totemBlock.id}} </p>
- 
- -->                            </div>
+                            <div class="block-container" ng-class="{'selected-block-container': $index==selectedBlockIndex}">
+                                <div class="totem-block" data-position={{totemBlock.position}} ng-class="{'selectedBlock': $index==selectedBlockIndex, 'monkey-block':totemBlock.totem_type == 'monkey', 'face-block':totemBlock.totem_type == 'face', 'bear-block':totemBlock.totem_type == 'bear'}" ng-click="setSelectedBlock($index)">
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -36,8 +34,8 @@
                 </div>
     		</div>
     	</div>
-    	<div class="row">
-			<div class="small-11 small-offset-1">
+    	<div class="row row-full-width">
+			<div class="padding-for-content">
                 <div class="content-container">
                     <textarea class="content-input" id="editContentInput" name="Text1" cols="40" rows="5" ui-keypress="{enter: 'endEditContent()'}" ng-show="editingBlockContent" ng-model="totemBlocks[selectedBlockIndex].content" /> 
         			<p ng-bind-html="totemBlocks[selectedBlockIndex].content | linky" ng-dblclick="startEditContent()" ng-show="!editingBlockContent">
@@ -45,16 +43,18 @@
                 </div>
     		</div>
     	</div>
-    	<div class="row">
+    	<div class="row row-full-width drop-container">
 			<div class="small-12 pagination-centered">
                 <h2 ng-show=" !totemBlocks.length" ng-click="addBlock()">
                     <div data-alert class="alert-box" ng-bind="getStartedMessage">
                     </div>
                 </h2>
-                <div id="drop-target" ng-show='totemBlocks.length'>
-                    <div>Drop Pics Here</div>
-                </div>
                 <img id="uploadPreview" ng-show="totemBlocks[selectedBlockIndex].block_image_url" ng-src={{totemBlocks[selectedBlockIndex].block_image_url}}></img>
+                <div id="drop-target" ng-show='totemBlocks.length'>
+                    <div>
+                        <h1>Drag And Drop Files Here</h1>
+                    </div>
+                </div>
     		</div>
     	</div>
 	</div>
