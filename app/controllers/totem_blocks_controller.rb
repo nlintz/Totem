@@ -1,7 +1,7 @@
 class TotemBlocksController < ApplicationController
   def index
     @totem_flow = TotemFlow.find(params[:totem_flow_id])
-  	@totem_blocks = @totem_flow.totem_blocks
+    @totem_blocks = @totem_flow.totem_blocks
   	render json: @totem_blocks
   end
 
@@ -12,7 +12,7 @@ class TotemBlocksController < ApplicationController
     render json: @totem_block
   end
 
-  def createNew #todo: why arent' you create??
+  def create
   	@totem_flow = TotemFlow.find(params[:totem_flow_id])
   	@totem_block = @totem_flow.totem_blocks.create()
     @totem_block.position = @totem_flow.totem_blocks.count-1

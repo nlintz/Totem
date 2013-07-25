@@ -2,17 +2,16 @@ Totem::Application.routes.draw do
   root to: 'home#index'
   match '/image-upload/:totem_flow_id/:totem_block_id' => 'totemFlows#uploadImage'
 
-  scope '/build' do
-    resources :totem_flows do
-      resources :totem_blocks
-      match '/createNew' => 'totemBlocks#createNew'
-    end
+  scope :users do
+    match 'users/getCurrentUser' => 'users#getCurrentUser'
+    match 'users/getCurrentUser/:id' => 'users#getCurrentUserTotemFlows'
+    match 'users/:id/createNewTotemFlow' => 'users#createNewTotemFlow'
   end
 
-  scope '/users' do
-    match '/getCurrentUser' => 'users#getCurrentUser'
-    match '/getCurrentUser/:id' => 'users#getCurrentUserTotemFlows'
-    match ':id/createNewTotemFlow' => 'users#createNewTotemFlow'
+  resources :users do
+    resources :totem_flows do
+      resources :totem_blocks
+    end
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
