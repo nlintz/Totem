@@ -8,7 +8,7 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
     }
 }]);
 
-Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', 'Signout', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users, Signout) {
+Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'TotemFlows', 'TotemBlocks', 'Users', 'CurrentUser', 'Signout', 'BuildService', function($scope, $routeParams, $http, $location, TotemFlows, TotemBlocks, Users, CurrentUser, Signout, BuildService) {
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
@@ -20,7 +20,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     $scope.sendTotemEmail = "";
     $scope.getStartedMessage = "Click Me!";
 
-    Users.currentUser().then(function (user){
+    CurrentUser.currentUser().then(function (user){
         $scope.user = user.data
         $scope.totemFlow = TotemFlows.get({totem_flow_id:$routeParams.totemFlowId, user_id:$scope.user.id})
     	$scope.totemBlocks = TotemBlocks.query({user_id:$scope.user.id, totem_flow_id: $routeParams.totemFlowId}, function(data){
@@ -28,15 +28,10 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
                 $scope.totemBlocks[i].title = $scope.totemBlocks[i].title ? $scope.totemBlocks[i].title : $scope.defaultTitle
                 $scope.totemBlocks[i].content = $scope.totemBlocks[i].content ? $scope.totemBlocks[i].content : $scope.defaultText
             }
-            // if ($scope.totemBlocks.length > 0){
             $scope.selectedBlockIndex = 0
-            // }
-            // if ($scope.totemBlocks.length == 0){
-            //     $scope.addBlock();
-            // }
         });
     });
-    $scope.user = Users.currentUser();
+    // $scope.user = CurrentUser.currentUser();
 
     $scope.signOut = function(){
         Signout.signoutUser();
@@ -202,7 +197,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         var imgUrl = InkBlob[0].url;
         $scope.totemBlocks[$scope.selectedBlockIndex].block_image_url = imgUrl;
 
-        $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
+        // $.post("/image-upload/"+totemFlowId + "/" + totemBlockId, {block_image_url: InkBlob[0].url});
+        TotemBlocks.update({totem_flow_id:$routeParams.totemFlowId, user_id:$scope.user.id, totem_block_id: totemBlockId}, {block_image_url:imgUrl})
         $scope.$apply()
         },
     onError: function(type, message) {
@@ -216,11 +212,12 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     
 }]);
 
-Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'Users', 'TotemFlows', 'Signout', function($scope, $location, $http, $routeParams, Users, TotemFlows, Signout){
+Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'Users', 'CurrentUser', 'TotemFlows', 'Signout', function($scope, $location, $http, $routeParams, Users, CurrentUser, TotemFlows, Signout){
 
     $scope.searchQuery = $routeParams.searchQuery ? $routeParams.searchQuery : "";
-    $scope.totemFlows = []
-    Users.currentUser().then(function (user){
+    $scope.totemFlows = [];
+
+    CurrentUser.currentUser().then(function (user){
         $scope.user = user.data
         $scope.totemFlows = TotemFlows.query({user_id: $scope.user.id})
     })

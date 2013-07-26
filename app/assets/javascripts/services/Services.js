@@ -3,25 +3,15 @@ Services = angular.module('Services', ['ngResource']);
 Services.factory('Users', ['$resource', '$http', function($resource, $http){
 	var Users = {
 		resource : $resource('/users/:user_id/',
-	{
-		user_id: '@user_id'
-	},
-	{
-		getUser: {method: 'GET'},
-		getUserTotemFlows: {method:'GET', isArray:true}
-	}),
-	currentUser : function() {
-		return $http({
-	            method: 'GET',
-	           	url:"/users/getCurrentUser"
-				}).success(function(data, status, headers, config) {
-	  				return data
-	  			}).error(function(data, status, headers, config) {
-	  				return data
-	  			})
-	  		}
+			{
+				user_id: '@user_id'
+			},
+			{
+				getUser: {method: 'GET'},
+				getUserTotemFlows: {method:'GET', isArray:true}
+			}),
 
-	}
+		}
 	return Users
 }]);
 
@@ -60,10 +50,29 @@ Services.factory('Signout', ['$http', function($http){
 	        location.reload(true);
 	      }).
 	      error(function(data, status, headers, config) {
-	        console.log('error occurred');
 	        location.reload(true);
 
 	      });
 	    }
 	}
 }]);
+
+Services.factory('CurrentUser', ['$http', function($http) {
+	var currentUser = {
+		currentUser : function() {
+		return $http({
+			method: 'GET',
+			url:"/users/getCurrentUser"
+				}).success(function(data, status, headers, config) {
+	  				return data
+	  			}).error(function(data, status, headers, config) {
+	  				return data
+	  			})
+		}
+	}
+	return currentUser
+}]);
+
+Services.service('BuildService', [function(){
+	this.hi = 'hi'
+}])
