@@ -4,6 +4,14 @@ class TotemFlowsController < ApplicationController
 		render json: @totem_flows
 	end
 
+	def create
+		@user = User.find(params[:user_id])
+		@totemFlow = @user.totem_flows.create(name: "Name This Totem")
+		@totemFlow.totem_blocks.create()
+		@totemFlow.save()
+		render json: @totem_flow
+	end
+
 	def show
 		@totem_flow = TotemFlow.find(params[:id])
 		render json: @totem_flow
@@ -17,7 +25,8 @@ class TotemFlowsController < ApplicationController
 
 	def update
 		@totem_flow = TotemFlow.find(params[:id])
-    	@totem_flow.update_attributes(params[:totemFlow])
+    	@totem_flow.update_attributes(params[:totem_flow])
+    	@totem_flow.save
     	render json: @totem_flow
 	end
 

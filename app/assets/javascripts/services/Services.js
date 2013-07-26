@@ -1,31 +1,53 @@
 Services = angular.module('Services', ['ngResource']);
 
-Services.factory('TotemFlows', ['$resource', function($resource){
-	return $resource('/build/totem_flows/:totem_flow_id/', 
-		{ 
-			totem_flow_id: '@totem_flow_id'
-		}
-	);
-}]);
-
-Services.factory('TotemBlocks', ['$resource', function($resource){
-	return $resource('/build/totem_flows/:totem_flow_id/totem_blocks/:totem_block_id', 
-		{ 
-			totem_flow_id: '@totem_flow_id',
-			totem_block_id: '@totem_block_id' 
-		});
-}]);
-
-Services.factory('Users', ['$resource', function($resource){
-	return $resource('/users/getCurrentUser/:user_id',
+Services.factory('Users', ['$resource', '$http', function($resource, $http){
+	var Users = {
+		resource : $resource('/users/:user_id/',
 	{
 		user_id: '@user_id'
 	},
 	{
 		getUser: {method: 'GET'},
 		getUserTotemFlows: {method:'GET', isArray:true}
-	});
-}])
+	}),
+	currentUser : function() {
+		return $http({
+	            method: 'GET',
+	           	url:"/users/getCurrentUser"
+				}).success(function(data, status, headers, config) {
+	  				return data
+	  			}).error(function(data, status, headers, config) {
+	  				return data
+	  			})
+	  		}
+
+	}
+	return Users
+}]);
+
+
+Services.factory('TotemFlows', ['$resource', function($resource){
+	return $resource('/users/:user_id/totem_flows/:totem_flow_id', 
+		{ 
+			user_id: '@user_id',
+			totem_flow_id: '@totem_flow_id'
+		}, {
+			create: {method: 'POST'},
+			update: {method: 'PUT'}
+		});
+}]);
+
+Services.factory('TotemBlocks', ['$resource', function($resource){
+	return $resource('/users/:user_id/totem_flows/:totem_flow_id/totem_blocks/:totem_block_id', 
+		{ 
+			user_id: '@user_id',
+			totem_flow_id: '@totem_flow_id',
+			totem_block_id: '@totem_block_id' 
+		}, {
+			create: {method: 'POST'},
+			update: {method: 'PUT'}
+		});
+}]);
 
 Services.factory('Signout', ['$http', function($http){
 	return {

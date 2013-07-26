@@ -8,7 +8,7 @@ class TotemBlocksController < ApplicationController
   def update
     @totem_flow = TotemFlow.find(params[:totem_flow_id])
     @totem_block = @totem_flow.totem_blocks.find(params[:id])
-    @totem_block.update_attributes(params[:totemBlock])
+    @totem_block.update_attributes(params[:totem_block])
     render json: @totem_block
   end
 
