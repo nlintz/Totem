@@ -16,7 +16,6 @@ class TotemBlocksController < ApplicationController
   	@totem_flow = TotemFlow.find(params[:totem_flow_id])
   	@totem_block = @totem_flow.totem_blocks.create()
     @totem_block.position = @totem_flow.totem_blocks.count-1
-    @totem_block.totem_type = [:monkey, :bear, :face].sample
     @totem_block.save()
   	render json: @totem_block
   end

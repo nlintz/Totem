@@ -118,20 +118,26 @@ Services.service('BuildService', ['TotemBlocks', 'TotemFlows', function(TotemBlo
 	this.updateTotemFlow = function(userId, totemFlowId, totemFlow){
         TotemFlows.update({user_id:userId, totem_flow_id:totemFlowId}, totemFlow)
 	}
-	this.updateTotemBlock = function(userId, totemFlowId, totemBlockId, totemBlock){
+	this.updateTotemBlock = function(userId, totemFlowId, totemBlockId, totemBlock, callback){
         TotemBlocks.update({user_id:userId, totem_flow_id:totemFlowId, totem_block_id: totemBlockId}, totemBlock)
 	}
 }])
 
 Services.service('LibraryService', ['CurrentUser', 'Signout', 'TotemBlocks', 'TotemFlows', 'Users', function(CurrentUser, Signout, TotemBlocks, TotemFlows, Users){
+	this.createTotemFlow = function(userId){
+        TotemFlows.create({user_id:userId})
+	}
 	this.getCurrentUser = function(callback){
 		CurrentUser.currentUser().then(function (user){
 			callback(user)
 			return user
 		})	
 	}
-	this.getTotemFlows = null;
-	this.getTotemBlocks = null;
+	this.getTotemFlows = function(userId, callback){
+		TotemFlows.query({user_id: userId}, function(totemFlows){
+			callback(totemFlows);
+		})
+	}
 	this.signout = function(){
 		Signout.signoutUser();
 	};

@@ -70,6 +70,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     }
     
     $scope.startEditSendEmail = function(sendTotemEmail) {
+        console.log('hi')
         $scope.editingSendEmail = true;
     }
     $scope.endEditSendEmail = function(){
@@ -85,13 +86,9 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingBlockContent = false
         editInputCallback('title', true)
     })
-    $('#editFlowNameInput').blur(function(){
-        $scope.editingFlowName = false
-        editInputCallback('flowName', true)
-    })
-
 
     $('#sendInput').blur(function(){
+        console.log('blur')
         $scope.editingSendEmail = false;
         $scope.$apply();
     })
@@ -140,7 +137,7 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.totemBlocks.push(newBlock)
         $scope.selectedBlockIndex = ($scope.totemBlocks.length - 1)
         BuildService.createTotemBlock($scope.user.id, $scope.totemFlow.id, function(totemBlock){
-            $scope.totemBlocks[$scope.selectedBlockIndex] = totemBlock;
+            BuildService.updateTotemBlock($scope.user.id, $scope.totemFlow.id, totemBlock.id, newBlock)
         });
     }
 
@@ -210,14 +207,16 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     
 }]);
 
-Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'PublicService', function($scope, $location, $http, $routeParams, PublicService){
+Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$routeParams', 'PublicService', 'LibraryService', function($scope, $location, $http, $routeParams, PublicService, LibraryService){
 
     $scope.searchQuery = $routeParams.searchQuery ? $routeParams.searchQuery : "";
     $scope.totemFlows = [];
 
-    CurrentUser.currentUser().then(function (user){
-        $scope.user = user.data
-        $scope.totemFlows = TotemFlows.query({user_id: $scope.user.id})
+    PublicService.getCurrentUser(function (user){
+        $scope.user = user
+        LibraryService.getTotemFlows($scope.user.id, function(totemFlows){
+            $scope.totemFlows = totemFlows;
+        })
     })
     $scope.viewTotemFlow = function(totemFlow){
         var totemFlowid = totemFlow.id;
@@ -226,7 +225,7 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$r
     $scope.createNewTotemFlow = function() {
         var newTotemFlow = {name: "Name This Totem"}
         $scope.totemFlows.push(newTotemFlow);
-        TotemFlows.create({user_id:$scope.user.id})
+        LibraryService.createTotemFlow($scope.user.id)
     }
 
     $scope.search = function(searchQuery){
