@@ -9,6 +9,7 @@ Controllers.controller('SplashController', ['$scope', function($scope) {
 }]);
 
 Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$location', 'PublicService', 'BuildService', function($scope, $routeParams, $http, $location, PublicService, BuildService) {
+    $( "#totemBlocksList" ).sortable();
     $scope.totemBlocks = []
     $scope.defaultTitle = "Add Title";
     $scope.defaultText = "Add Text";
@@ -70,8 +71,8 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
     }
     
     $scope.startEditSendEmail = function(sendTotemEmail) {
-        console.log('hi')
         $scope.editingSendEmail = true;
+        console.log($scope.editingSendEmail)
     }
     $scope.endEditSendEmail = function(){
         $scope.editingSendEmail = false;
@@ -86,13 +87,6 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.editingBlockContent = false
         editInputCallback('title', true)
     })
-
-    $('#sendInput').blur(function(){
-        console.log('blur')
-        $scope.editingSendEmail = false;
-        $scope.$apply();
-    })
-
 
     $scope.saveTotem = function(){
         editInputCallback();
@@ -137,7 +131,9 @@ Controllers.controller('BuildController', ['$scope', '$routeParams', '$http', '$
         $scope.totemBlocks.push(newBlock)
         $scope.selectedBlockIndex = ($scope.totemBlocks.length - 1)
         BuildService.createTotemBlock($scope.user.id, $scope.totemFlow.id, function(totemBlock){
-            BuildService.updateTotemBlock($scope.user.id, $scope.totemFlow.id, totemBlock.id, newBlock)
+            BuildService.updateTotemBlock($scope.user.id, $scope.totemFlow.id, totemBlock.id, newBlock, function(totemBlock){
+                $scope.totemBlocks[$scope.selectedBlockIndex] = totemBlock;
+            })
         });
     }
 
@@ -238,4 +234,11 @@ Controllers.controller('LibraryController', ['$scope', '$location', '$http', '$r
 
     $("#add-new-block-container").hide(0).fadeIn(200);
 
+}]);
+
+Controllers.controller('SideBarController', ['$scope', function($scope){
+        $('#sendInput').blur(function(){
+        $scope.editingSendEmail = false;
+        $scope.$apply();
+        });
 }]);

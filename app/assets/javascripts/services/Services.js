@@ -119,7 +119,9 @@ Services.service('BuildService', ['TotemBlocks', 'TotemFlows', function(TotemBlo
         TotemFlows.update({user_id:userId, totem_flow_id:totemFlowId}, totemFlow)
 	}
 	this.updateTotemBlock = function(userId, totemFlowId, totemBlockId, totemBlock, callback){
-        TotemBlocks.update({user_id:userId, totem_flow_id:totemFlowId, totem_block_id: totemBlockId}, totemBlock)
+        TotemBlocks.update({user_id:userId, totem_flow_id:totemFlowId, totem_block_id: totemBlockId}, totemBlock, function(totemBlock){
+        	callback(totemBlock)
+        })
 	}
 }])
 
